@@ -27,7 +27,6 @@ for i in 1..5 do
   club = Club.new(
     email: "email#{i}@club.com",
     name: "Club#{i}",
-    password: "Password#{i}",
     zip_code: "5067#{i}",
     city: "City#{i}",
     street: "Street#{i}",
