@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+Venue.destroy_all
+Club.destroy_all
+User.destroy_all
 
 puts 'Creating 5 users...'
 for i in 1..5 do
@@ -27,19 +29,19 @@ for i in 1..5 do
   club = Club.new(
     email: "email#{i}@club.com",
     name: "Club#{i}",
-    password: "Password#{i}",
     zip_code: "5067#{i}",
     city: "City#{i}",
     street: "Street#{i}",
     phone_number: "0173 00000#{i}"
   )
+  club.user = User.last
   club.save!
   for v in 1..5 do
     venue = Venue.new(
       name: "Venue#{v}",
       category: "categroy1",
       description: "Description#{v}",
-      club_id: club.last
+      club: Club.last
     )
     venue.save!
   end

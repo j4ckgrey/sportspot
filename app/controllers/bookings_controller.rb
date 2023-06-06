@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.status = (params[:booking][:status])
+    @booking.status = (params[:booking])
     @booking.save
     redirect_to root_path, status: :see_other
   end
@@ -33,6 +33,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.required(:booking).permit(:start_date, :end_date)
+    params.required(:booking).permit(:date, :time)
   end
 end
