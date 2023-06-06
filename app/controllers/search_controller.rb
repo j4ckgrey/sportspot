@@ -18,7 +18,9 @@ class SearchController < ApplicationController
     if category == "All"
       Post.joins(:venues).where("clubs.zip_code LIKE ?", "%#{query}%")
     else
-      Post.joins(:venues).where("clubs.zip_code LIKE ? AND other_table.category = ?", "%#{query}%", category)
+
+      Post.joins(:venues).where("clubs.zip_code LIKE ? AND venues.category = ?", "%#{query}%", category)
+
     end
   end
 
