@@ -45,4 +45,4 @@ for i in 1..5 do
   end
 end
 
-puts 'Finished!'
+puts 'Finished creating 5 users, 5 clubs and 25 venues!'
