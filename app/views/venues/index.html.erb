@@ -1,4 +1,5 @@
 <% @venues.each do |venue| %>
-  <%= venue.name %>
-  <%= venue.category %>
+  <h1><%= venue.name %></h1>
+  <h2><%= venue.category %></h2>
+  <%= link_to "show this Venue", venue %>
 <% end %>
