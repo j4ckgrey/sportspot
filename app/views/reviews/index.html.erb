@@ -1,0 +1,42 @@
+<div class="container">
+
+
+  <div class="new-review">
+    <h2>Give us your opinion</h2>
+    <%= simple_form_for [@venue, @review] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :comment, as: :text %>
+      <%= f.input :rating, collection: 1..5, include_blank: "Rate Us" %>
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <h1> What our coustomers said about us: </h1>
+  <% if @reviews.present? %>
+    <% @reviews.order(created_at: :desc).each do |review| %>
+      <div class="review">
+        <h3><%= review.title %></h3>
+        <p><%= review.comment %></p>
+        <p><strong>Author:</strong> <%= review.user.first_name %></p>
+        <p><strong>Created At:</strong> <%= review.created_at.strftime('%d %B %Y, %H:%M') %></p>
+        <div class="button-group">
+          <%# <%= link_to 'Show', venue_review_path(@venue, review), class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_venue_review_path(@venue, review), class: 'btn btn-secondary' %>
+          <%= button_to 'Delete', venue_review_path(@venue, review), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', form: { class: 'delete-form' } %>
+        </div>
+        <hr>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No reviews available for this venue.</p>
+  <% end %>
+</div>
+
+<style>
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+</style>

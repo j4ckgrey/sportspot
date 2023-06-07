@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   end
   resources :venues, only: %i[index show edit destroy] do
     resources :bookings, only: %i[new create]
+    # resources :reviews, only: [:index, :new, :create]
   end
+  resources :venues do
+    resources :reviews
+  end
+
   get 'search', to: 'search#index'
 
   # Defines the root path route ("/")
