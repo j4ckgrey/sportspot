@@ -8,6 +8,15 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     @booking = Booking.new
     authorize @venue
+    @clubs = @venue.club
+    @markers = @clubs.geocoded.map do |club|
+      {
+        lat: club.latitude,
+        lng: club.longitude,
+        info_window_html: render_to_string(partial: "shared/info_window", locals: {club: club})
+      }
+    end
+  end
   end
 
   def new

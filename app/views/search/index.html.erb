@@ -9,6 +9,7 @@
   <% @results.each do |result| %>
     <p><%= result.name %></p>
   <% end %>
+  <%= render "shared/map", markers: @markers%>
 <% else %>
   <p>No results found.</p>
 <% end %>
