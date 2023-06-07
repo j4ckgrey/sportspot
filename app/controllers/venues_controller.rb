@@ -15,6 +15,23 @@ class VenuesController < ApplicationController
     authorize @venue
   end
 
+  def edit
+  end
+
+  def destroy
+    @venue = Venue.find(params[:id])
+    @venue.destroy
+    redirect_to root_path, status: :see_other
+  end
+
+  def update
+    if @venue.update(venue_params)
+      redirect_to venue_path(@venue)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def create
     @venue = Venue.new(venue_params)
     @venue.user = current_user
