@@ -7,11 +7,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    booking.user == user
+    user.is_user?
   end
 
   def edit?
-    booking.user == user || user.is_admin? || user.is_owner?
+    user.is_user? || user.is_admin? || user.is_owner?
   end
 
   def update?
@@ -19,6 +19,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    edit?
+    user.is_admin? || user.is_user?
   end
 end

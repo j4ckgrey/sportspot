@@ -18,6 +18,8 @@ class ClubsController < ApplicationController
     @club = Club.new(club_params)
     @club.user = current_user
     authorize @club
+
+    # when a club is created, add the owner to the current user roles
   end
 
   private
