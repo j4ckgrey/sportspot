@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def new
     @venue = Venue.find(params[:venue_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -15,18 +16,21 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @booking
   end
 
   def update
     @booking = Booking.find(params[:id])
     @booking.status = (params[:booking])
     @booking.save
+    authorize @booking
     redirect_to root_path, status: :see_other
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
+    authorize @booking
     redirect_to root_path, status: :see_other
   end
 
