@@ -25,7 +25,7 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     @club.user = current_user
-    #@club.address = "#{:street}, #{:city}, #{:zip_code}"
+    @club.address = "#{@club[:street]}, #{@club[:city]}, #{@club[:zip_code]}"
     #raise
     authorize @club
     # when a club is created, add the owner to the current user roles
