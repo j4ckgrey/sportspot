@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :clubs do
     resources :venues, only: %i[new create]
   end
-  resources :venues, only: %i[index show] do
+  resources :venues, only: %i[index show edit] do
     resources :bookings, only: %i[new create]
   end
   # Defines the root path route ("/")
