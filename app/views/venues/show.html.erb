@@ -2,4 +2,6 @@
 <h2>Your <%= @venue.category %> Arena</h2>
 
 <%= link_to "create new booking", new_venue_booking_path(@venue) %>
+
+<%= render "shared/map", markers: @markers %>
 <%# <%= link_to "create new booking", edit_venue_path(@venue) %>
