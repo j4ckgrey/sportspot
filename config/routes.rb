@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :venues, only: %i[index show edit destroy] do
     resources :bookings, only: %i[new create]
   end
+  get 'search', to: 'search#index'
+
   # Defines the root path route ("/")
   # root "articles#index"
 end
