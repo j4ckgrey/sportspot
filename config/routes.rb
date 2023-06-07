@@ -5,10 +5,9 @@ Rails.application.routes.draw do
   resources :clubs do
     resources :venues, only: %i[new create]
   end
-  resources :venues, only: %i[index show] do
+  resources :venues, only: %i[index show edit destroy] do
     resources :bookings, only: %i[new create]
   end
   # Defines the root path route ("/")
   # root "articles#index"
-  get '/search', to: 'search#index', as: 'search'
 end
