@@ -13,7 +13,8 @@ class VenuesController < ApplicationController
         lat: @venue.club.latitude,
         lng: @venue.club.longitude,
         info_window_html: render_to_string(partial: "shared/info_window", locals: { club: @venue.club })
-      }]
+      }
+    ]
   end
 
   def new
