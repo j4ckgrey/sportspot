@@ -1,7 +1,14 @@
-<%# <%= link_to "create new venue", new_club_venue_path(@venue) %>
-
-<% @venues.each do |venue| %>
-  <h1><%= venue.name %></h1>
-  <h2><%= venue.category %></h2>
-  <%= link_to "show this Venue", venue %>
-<% end %>
+<div class="row justify-content-center">
+  <% @venues.each do |venue| %>
+    <div class="card shadow p-3 mb-5 bg-white rounded-4 text-center m-3" style="width: 22rem; height:33rem;">
+      <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="card-img-top shadow border-2 rounded-4 mt-2" alt="...">
+      <div class="card-body d-flex flex-column justify-content-between">
+        <div>
+          <h5 class="card-title"><%= venue.name %></h5>
+          <p class="card-text"><%= venue.category %></p>
+        </div>
+        <%= link_to "show this Venue", venue, class:"btn allign-bottom rounded shadow p-3 mb-1", style:"background-color:#9cbfdd;"%>
+      </div>
+    </div>
+  <% end %>
+</div>
