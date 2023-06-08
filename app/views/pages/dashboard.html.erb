@@ -8,6 +8,14 @@
 <ul><% end %></ul>
 
 <% if current_user.is_owner? %>
+  <% @owns.each do |own| %>
+    <ul>
+      <li><%= own.name %></li>
+    </ul>
+  <%end%>
+<% end %>
+
+<% if current_user.is_owner? %>
   <h1>Here are your pending requests</h1>
   <% current_user.venues.each do |venue| %>
     <% venue.bookings.each do |booking| %>
