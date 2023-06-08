@@ -13,6 +13,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @clubs = Club.all
     @mybookings = current_user.bookings
+    @owns = Club.where(user_id: current_user.id)
   end
 end

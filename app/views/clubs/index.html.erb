@@ -1,2 +1,5 @@
-<h4> this is the club </h4>
-<%= @clubs.name %>
+<h4> Clubs using SportSpot </h4>
+
+<% @clubs.each do |club| %>
+  <p><%= club.name %></p>
+<% end %>
