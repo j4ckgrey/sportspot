@@ -2,7 +2,7 @@
 <h2><%= @club.address%></h2>
 
 <ul><% @venues.each do |venue| %></ul>
-  <li><%= link_to "Click here to access #{venue.name}", venue %>
+  <li><%= link_to "View Venue #{venue.name}", venue %>
 <% end %>
 
 
