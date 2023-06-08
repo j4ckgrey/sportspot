@@ -6,13 +6,16 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
+    @venues = @club.venues
     authorize @club
     @markers = [
       {
         lat: @club.latitude,
         lng: @club.longitude,
-        info_window_html: render_to_string(partial: "shared/info_window", locals: { club: club })
-      }]
+
+        info_window_html: render_to_string(partial: "shared/info_window", locals: { club: @club })
+      }
+    ]
   end
 
   def new
