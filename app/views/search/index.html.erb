@@ -1,15 +1,18 @@
-<%= form_tag(search_path, method: :get) do %>
-  <%= text_field_tag :query, params[:query], placeholder: "Search..." %>
-  <%= select_tag :category, options_for_select(['All', 'categroy1', 'Football', 'Basketball', 'Tennis', 'Badminton', 'Pool', 'Bowling']), include_blank: 'Select Category' %>
-  <%= submit_tag "Search" %>
-<% end %>
-
-<% if @results.any? %>
-  <h3>Search Results:</h3>
-  <% @results.each do |result| %>
-    <p><%= result.name %></p>
+<div class="container">
+  <%= form_tag(search_path, method: :get) do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search..." %>
+    <%= select_tag :category, options_for_select(['All', 'categroy1', 'Football', 'Basketball', 'Tennis', 'Badminton', 'Pool', 'Bowling']), include_blank: 'Select Category' %>
+    <%= submit_tag "Search" %>
   <% end %>
-  <%= render "shared/map", markers: @markers%>
-<% else %>
-  <p>No results found.</p>
-<% end %>
+
+  <% if @results.any? %>
+    <h3>Search Results:</h3>
+    <% @results.each do |result| %>
+      <p><%= result.name %></p>
+      <%= link_to "show this Venue(doesnt work, check pundit)", result %>
+    <% end %>
+    <%= render "shared/map", markers: @markers%>
+  <% else %>
+    <p>No results found.</p>
+  <% end %>
+</div>

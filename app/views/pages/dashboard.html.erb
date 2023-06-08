@@ -1,0 +1,43 @@
+<ul><% @mybookings.each do |booking| %></ul>
+  <li><%= booking.venue.club.name %></li>
+  <li><%= booking.venue.name %></li>
+  <li><%= booking.date %></li>
+  <li><%= booking.time %></li>
+  <li><%= booking.status %></li>
+  <%= link_to "Cancel my Booking", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel?' }, class:"btn btn-primary btn-sm" %>
+<ul><% end %></ul>
+
+<% if current_user.is_owner? %>
+  <h1>Here are your pending requests</h1>
+  <% current_user.venues.each do |venue| %>
+    <% venue.bookings.each do |booking| %>
+      <% if booking.status == 'pending' %>
+        <ul><%= booking.user.first_name %> has made a booking for <%= venue.name %></ul>
+        <%= link_to "Confirm", booking_path(booking, booking: {status: :confirmed}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to confirm?' }, class:"btn btn-primary btn-sm" %>
+        <%= link_to "Decline", booking_path(booking, booking: {status: :declined}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to decline?' }, class:"btn btn-secondary btn-sm" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if current_user.is_owner? %>
+  <h1>Here are your the confirmed bookings for your venues.</h1>
+  <% current_user.venues.each do |venue| %>
+    <% venue.bookings.each do |booking| %>
+      <% if booking.confirmed? %>
+        <ul><%= booking.user.first_name %> has made a booking for <%= venue.name %></ul>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if current_user.is_owner? %>
+  <h1>Here are your the declined bookings for your venues.</h1>
+  <% current_user.venues.each do |venue| %>
+    <% venue.bookings.each do |booking| %>
+      <% if booking.declined? %>
+        <ul><%= booking.user.first_name %> has made a booking for <%= venue.name %></ul>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

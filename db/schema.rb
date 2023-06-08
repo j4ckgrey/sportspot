@@ -21,6 +21,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_131742) do
     t.bigint "venue_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0, null: false
+    t.index ["status"], name: "index_bookings_on_status"
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["venue_id"], name: "index_bookings_on_venue_id"
   end
@@ -67,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_131742) do
     t.string "city"
     t.string "street"
     t.integer "phone_number"
-    t.string "roles", default: ["user", "owner", "admin"], array: true
+    t.string "roles", default: ["user"], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

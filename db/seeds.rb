@@ -24,6 +24,10 @@ for i in 1..5 do
   user.save!
 end
 
+User.first.update!(roles: ['user', 'admin'])
+last_user = User.last
+last_user.update!(roles: ['user', 'owner'])
+
 puts 'Creating 5 clubs with 5 venues each...'
 for i in 1..5 do
   club = Club.new(
@@ -35,7 +39,7 @@ for i in 1..5 do
     phone_number: "0173 00000#{i}",
     address: "Hohenzollernring 22-24, 50672 Köln"
   )
-  club.user = User.last
+  club.user = last_user
   club.save!
   for v in 1..5 do
     venue = Venue.new(
