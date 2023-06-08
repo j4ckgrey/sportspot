@@ -1,5 +1,9 @@
 <h1><%= @club.name %></h1>
+<h2><%= @club.address%></h2>
+
 <ul><% @venues.each do |venue| %></ul>
   <li><%= link_to "Click here to access #{venue.name}", venue %>
 <% end %>
+
+
 <%= render "shared/map", markers: @markers %>

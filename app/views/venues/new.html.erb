@@ -1,1 +1,8 @@
-<%= render "form", venues: @venue %>
+<%# <%= render "shared/form", venues: @venue %>
+
+<%= simple_form_for [@venue, @review] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
+  <%= f.button :submit %>
+<% end %>
