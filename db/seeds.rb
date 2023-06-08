@@ -36,7 +36,8 @@ for i in 1..5 do
     zip_code: "5067#{i}",
     city: "City#{i}",
     street: "Street#{i}",
-    phone_number: "0173 00000#{i}"
+    phone_number: "0173 00000#{i}",
+    address: "Hohenzollernring 22-24, 50672 Köln"
   )
   club.user = last_user
   club.save!

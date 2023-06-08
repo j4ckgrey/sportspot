@@ -3,6 +3,14 @@ class SearchController < ApplicationController
     @query = params[:query].to_i
     @category = params[:category]
     @results = policy_scope(search_results(@query, @category))
+    @clubs = @results
+    @markers = @clubs.geocoded.map do |club|
+      {
+        lat: club.latitude,
+        lng: club.longitude,
+        info_window_html: render_to_string(partial: "shared/info_window", locals: {club: club})
+      }
+    end
   end
 
   def search_results(query, category)

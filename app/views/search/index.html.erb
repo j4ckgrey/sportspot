@@ -11,6 +11,7 @@
       <p><%= result.name %></p>
       <%= link_to "show this Venue(doesnt work, check pundit)", result %>
     <% end %>
+    <%= render "shared/map", markers: @markers%>
   <% else %>
     <p>No results found.</p>
   <% end %>
