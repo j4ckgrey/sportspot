@@ -15,6 +15,13 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :first_name, label: 'First Name' %>
+    <%= f.input :last_name, required: true, label: 'Last Name'%>
+    <%= f.input :street, required: true, label: 'Street and house number'%>
+    <%= f.input :zip_code, required: true, as: :integer ,label: 'Post code'%>
+    <%= f.input :city, required: true, label: 'City'%>
+    <%= f.input :phone_number, as: :integer, label: 'Phone number'%>
+
   </div>
 
   <div class="form-actions">
