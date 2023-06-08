@@ -4,4 +4,6 @@
 <ul><% @venues.each do |venue| %></ul>
   <li><%= link_to "Click here to access #{venue.name}", venue %>
 <% end %>
+
+
 <%= render "shared/map", markers: @markers %>
