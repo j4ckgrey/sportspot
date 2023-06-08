@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @club = @venue.club
     if @booking.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,17 +21,17 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.status = (params[:booking])
+    @booking.status = (params[:booking][:status])
     @booking.save
     authorize @booking
-    redirect_to root_path, status: :see_other
+    redirect_to dashboard_path, status: :see_other
   end
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.destroy
     authorize @booking
-    redirect_to root_path, status: :see_other
+    @booking.destroy
+    redirect_to dashboard_path, status: :see_other
   end
 
   private
