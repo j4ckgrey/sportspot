@@ -6,8 +6,8 @@ class ClubPolicy < ApplicationPolicy
     end
   end
 
-  def show
-    user.is_owner? || user.is_admin?
+  def show?
+    true
   end
 
   def create?
