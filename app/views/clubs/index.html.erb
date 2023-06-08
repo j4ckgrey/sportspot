@@ -1,5 +1,22 @@
 <h4> Clubs using SportSpot </h4>
 
+<div class="container">
 <% @clubs.each do |club| %>
-  <p><%= club.name %></p>
-<% end %>
+<div class="row justify-content-center">
+  <div class="card mb-3" style="max-width: 100%;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= club.name %></h5>
+          <p class="card-text"><%= club.address %></p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+        <%= link_to "show this Venue", club, class:"btn allign-bottom rounded shadow p-3 mb-1", style:"background-color:#9cbfdd;"%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
