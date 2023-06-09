@@ -1,9 +1,13 @@
 <div class="container">
   <%= form_tag(search_path, method: :get) do %>
-    <%= text_field_tag :query, params[:query], placeholder: "Search..." %>
+    <%= text_field_tag :query, params[:query], placeholder: "Your city or post code" %>
     <%= select_tag :category, options_for_select(['All', 'categroy1', 'Football', 'Basketball', 'Tennis', 'Badminton', 'Pool', 'Bowling']), include_blank: 'Select Category' %>
     <%= submit_tag "Search" %>
   <% end %>
+
+    <%if @query =~ /^(?=.*[a-zA-Zäöüß])(?=.*[0-9])/ %>
+    <h3> Please enter either post-code OR city </h3>
+    <%end%>
 
   <% if @results.any? %>
     <h3>Search Results:</h3>
