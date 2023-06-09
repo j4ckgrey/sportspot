@@ -1,13 +1,14 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center mx-auto" style="width: 1200px;">
   <% @venues.each do |venue| %>
     <div class="card shadow p-3 mb-5 bg-white rounded-4 text-center m-3" style="width: 22rem; height:33rem;">
       <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="card-img-top shadow border-2 rounded-4 mt-2" alt="...">
       <div class="card-body d-flex flex-column justify-content-between">
         <div>
-          <h5 class="card-title"><%= venue.name %></h5>
-          <p class="card-text"><%= venue.category %></p>
+          <h4 class="card-title"><%= venue.name %></h4>
+          <h5 class="card-text"><%= venue.category %></h5>
+          <p><%= venue.description.truncate(80) %></p>
         </div>
-        <%= link_to "show this Venue", venue, class:"btn allign-bottom rounded shadow p-3 mb-1", style:"background-color:#9cbfdd;"%>
+        <%= link_to "", venue, class:"stretched-link" %>
       </div>
     </div>
   <% end %>

@@ -6,7 +6,7 @@ clubs_emails = "something@address.de"
 
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus consequat velit, in tincidunt orci ornare at. Nunc elit mauris, luctus non dapibus feugiat, bibendum iaculis odio. Morbi orci ante, egestas a risus non, mattis bibendum nulla. Mauris et dolor quis nibh pulvinar pharetra in commodo nisi. Fusce vel arcu non odio bibendum fermentum at nec eros. Vivamus vitae feugiat mi. Nam id dolor ac dolor tristique dignissim. Morbi et congue quam. Morbi molestie vitae tortor sit amet suscipit."
 
-user = User.create(email: "jack@jack.jack", password: "jackjack", first_name: "Jack", last_name: "Grey", zip_code: 42929, city: "Wermelskirchen", street: "Eich 34", phone_number: 123456789, roles: 'owner')
+user = User.create(email: "jack@jack.jack", password: "jackjack", first_name: "Jack", last_name: "Grey", zip_code: 42929, city: "Wermelskirchen", street: "Eich 34", phone_number: 123456789, roles: ['owner'])
 
 clubs_names.each_with_index do |clubname, index|
   club = Club.new(name: clubname)
