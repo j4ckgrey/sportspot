@@ -6,13 +6,32 @@
   <% end %>
 
   <% if @results.any? %>
-    <h3>Search Results:</h3>
-    <% @results.each do |result| %>
-      <%= link_to "#{result.name}", result %>
-      <p><%= result.address %></p>
-    <% end %>
-    <%= render "shared/map", markers: @markers%>
+    <h3 class="text-center my-5">Search Results:</h3>
+    <div class="container mx-auto">
+      <% @results.each do |result| %>
+        <div class="card mb-5 shadow rounded-3" style="max-width: 1200px;">
+          <div class="row g-0 border">
+            <div class="col-md-4">
+              <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                  <h1 class="card-title"><%= result.name %></h1>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <%= result.venues.map {|venue|venue.name}.join(", ") %>
+                  <%= link_to "", club_path(result), class:"stretched-link"%>
+                </div>
+                <p class="card-text"><small class="text-muted"><%= result.address %></small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% else %>
-    <p>No results found.</p>
+    <div class="text-center m-5">
+      <p>No results found.</p>
+    </div>
   <% end %>
 </div>

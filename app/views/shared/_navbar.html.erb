@@ -1,21 +1,15 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:#9cbfdd">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to "#", class: "navbar-brand fa-solid fa-volleyball btn-hover" do %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active mx-3">
-            <%= link_to "Home", root_path, class: "nav-link btn-hover" %>
+            <%= link_to "", root_path, class: "fa-solid fa-house nav-link btn-hover" %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to "Messages", "#", class: "nav-link btn-hover" %>
+            <%= link_to "", "#", class: "fa-solid fa-message nav-link btn-hover" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
