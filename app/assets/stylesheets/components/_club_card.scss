@@ -1,9 +1,9 @@
 .club-card:hover{
-  box-shadow: 5px 6px 6px 2px #e9ecef;
-  transform: scale(1.1);
+  box-shadow: 3px 4px 4px 1px #e9ecef;
+  transform: scale(1.02);
 }
 
 .club-card{
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
 }

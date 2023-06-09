@@ -1,23 +1,28 @@
 class SearchController < ApplicationController
   def index
-    @query = params[:query].to_i
+    @query = params[:query]
     @category = params[:category]
+    @results = search_results(@query, @category)
     @results = policy_scope(search_results(@query, @category))
+    # @results = Club.all
     @clubs = @results
-    @markers = @clubs.geocoded.map do |club|
-      {
-        lat: club.latitude,
-        lng: club.longitude,
-        info_window_html: render_to_string(partial: "shared/info_window", locals: {club: club})
-      }
-    end
   end
 
   def search_results(query, category)
-    if category == "All"
-      Club.joins(venues: :club).where("CAST(clubs.zip_code AS VARCHAR) LIKE ?", "%#{query}%")
+    if query =~ /^\d{5}$/
+      if category == "All"
+        Club.joins(venues: :club).where("CAST(clubs.zip_code AS VARCHAR) LIKE ?", "%#{query}%")
+      else
+        Club.joins(:venues).where("clubs.zip_code = ? AND venues.category = ?", query.to_i, category)
+      end
+    elsif query =~ /^[a-zäöüß\s]+$/i
+      if category == "All"
+        Club.joins(venues: :club).where("LOWER(clubs.city) LIKE ?", "%#{query.downcase}%")
+      else
+        Club.joins(:venues).where("LOWER(clubs.city) LIKE ? AND venues.category = ?", "%#{query.downcase}%", category)
+      end
     else
-      Club.joins(:venues).where("clubs.zip_code = ? AND venues.category = ?", query.to_i, category)
+      @results = Club.all
     end
   end
 end
