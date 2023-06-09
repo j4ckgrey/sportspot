@@ -1,5 +1,18 @@
-<h1><%= @venue.name %></h1>
-<h2>Your <%= @venue.category %> Arena</h2>
-<p><%= @venue.description %></p>
-
-<%= link_to "create new booking", new_venue_booking_path(@venue) %>
+<div class="row">
+<div class="col-7 pt-5 ps-5">
+    <%= link_to "See club for the location", club_path(@venue), class:"btn btn-dark" %>
+  </div>
+  <div class="col-4 pt-3 text-center">
+    <h1><%= @venue.name %></h1>
+    <h4>Your <%= @venue.category %> Arena</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 p-5">
+    <%= render "shared/carousel"%>
+  </div>
+  <div class="col-6 p-5 text-center">
+    <%= @venue.description %>
+    <%= link_to "create new booking", new_venue_booking_path(@venue), class:"m-5 btn d-flex justify-content-center", style:"color:white;background-color:#9cbfdd;"%>
+  </div>
+</div>
