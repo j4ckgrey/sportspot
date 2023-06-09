@@ -8,8 +8,6 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :venues, through: :clubs
 
-  
-
   def is_user?
     roles.include?("user")
   end
