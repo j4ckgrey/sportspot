@@ -1,12 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("1.jpg") %>);">
   <h1 class="ms-5"><strong>SportSpot brings your Sports booking with just few clicks</strong>!</h1>
   <p class="ms-5 mb-5">Book, Play and Conquer!</p>
-  <div class="d-flex justify-content-center mt-3 w-100">
-    <%= form_tag(search_path, method: :get) do %>
-      <%= text_field_tag :query, params[:query], placeholder: "Your post code", class:"rounded"%>
-      <%= select_tag :category, options_for_select(["All", "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball"])%>
-      <%= submit_tag "Search", class:"rounded", style:"color:ehite;background-color:#9cbfdd;"%>
-    <% end%>
   </div>
 </div>
 
