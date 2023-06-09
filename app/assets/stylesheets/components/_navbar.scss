@@ -10,3 +10,13 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.btn-hover {
+  margin: 10px;
+  color: white;
+}
+.btn-hover:hover{
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  }
