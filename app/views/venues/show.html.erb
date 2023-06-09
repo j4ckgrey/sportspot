@@ -13,6 +13,8 @@
   </div>
   <div class="col-6 p-5 text-center">
     <%= @venue.description %>
-    <%= link_to "create new booking", new_venue_booking_path(@venue), class:"m-5 btn d-flex justify-content-center", style:"color:white;background-color:#9cbfdd;"%>
+    <% if current_user.is_user? %>
+      <%= link_to "create new booking", new_venue_booking_path(@venue), class:"m-5 btn d-flex justify-content-center", style:"color:white;background-color:#9cbfdd;"%>
+    <% end %>
   </div>
 </div>
