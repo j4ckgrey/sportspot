@@ -10,7 +10,6 @@ class PagesController < ApplicationController
         info_window_html: render_to_string(partial: "shared/info_window", locals: { club: club })
       }
     end
-    @hide_navbar = true
   end
 
   def dashboard
