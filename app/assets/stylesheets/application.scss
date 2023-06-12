@@ -26,3 +26,83 @@ html, body {
   flex-grow: 1;
 }
 
+.title {
+  font-size: larger;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 5px;
+}
+.search-input {
+  /* Add your custom styles for the text input field */
+  /* Example styles: */
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+}
+
+.search-select {
+  /* Add your custom styles for the select dropdown */
+  /* Example styles: */
+  width: 200px; /* Adjust the width as needed */
+  padding: 8px;
+  height: auto; /* Allow the dropdown height to adjust based on content */
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+}
+
+.search-button {
+  /* Add your custom styles for the search button */
+  /* Example styles: */
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.align-items-center {
+  align-items: center;
+}
+.h-100 {
+  height: 100vh;
+}
+
+.background-ash{
+ color: rgb(35, 2, 2);
+}
+
+.venue-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+
+  .venue-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+.col-md-4 {
+  position: sticky;
+  top: 0;
+}
+
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+

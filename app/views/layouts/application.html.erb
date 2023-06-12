@@ -12,9 +12,10 @@
   </head>
 
   <body>
-
-   <div class="wrapper d-flex flex-column">
-      <%= render "shared/navbar" %>
+    <div class="wrapper d-flex flex-column">
+      <% unless current_page?(root_path) %>
+        <%= render "shared/navbar" %>
+      <% end %>
       <%= render "shared/flashes" %>
       <div class="content">
         <%= yield %>
