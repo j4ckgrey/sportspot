@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-7 pt-5 ps-5">
-    <%= link_to "See club for the location", club_path(@venue.club), class:"btn btn-dark" %>
+    <%= link_to "See club for the location", club_path(@venue.club), class:"btn club-card", style:"color:white;background-color:#9cbfdd" %>
   </div>
   <div class="col-4 pt-3 text-center">
     <h1><%= @venue.name %></h1>
@@ -18,7 +18,7 @@
       <%= link_to "edit venue",edit_venue_path(@venue), class:"club-card m-5 btn d-flex justify-content-center", style:"color:white;background-color:#9cbfdd;"%>
       <a><%= link_to "delete venue",venue_path(@venue), class:"delete m-5 btn d-flex justify-content-center", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %></a>
     <% elsif current_user.is_user? %>
-      <button type="button" class="m-5 btn d-flex justify-content-center", style="color:white;background-color:#9cbfdd;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button " class="club-card m-5 btn d-flex justify-content-center", style="color:white;background-color:#9cbfdd;" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Request new booking
       </button>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,3 +44,14 @@
     <% end %>
   </div>
 </div>
+  <% @reviews.each do |review| %>
+    <div class="border-top border-2 mx-5 px-5 mb-3">
+      <h3><%= review.title %></h3>
+      <div>
+        <% review.rating.times do %>
+          <i class="fa-solid fa-star" style="color: #fecb3e;"></i>
+        <% end %>
+      </div>
+      <p><%= review.comment %></p>
+    </div>
+  <% end %>
