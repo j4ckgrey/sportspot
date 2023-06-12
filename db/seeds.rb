@@ -22,14 +22,14 @@ end
 
 clubs = Club.all
 
-Venue.create(name: "MartialArts", category: "MartialArts", description: description, club: clubs[0])
-Venue.create(name: "Boulderplanet", category: "Bouldering", description: description, club: clubs[2])
-Venue.create(name: "Kletterfabrik Köln", category: "Bouldering", description: description, club: clubs[3])
-Venue.create(name: "K11 | Bouldering in South City", category: "Bouldering", description: description, club: clubs[4])
-Venue.create(name: "Stuntwerk Köln", category: "Bouldering", description: description, club: clubs[5])
-Venue.create(name: "Kegelclub - Die Teddybären", category: "Kegel", description: description, club: clubs[6])
-Venue.create(name: "City-Bowling Köln", category: "Bowling", description: description, club: clubs[7])
-Venue.create(name: "WDR Volleyball", category: "Volleyball", description: description, club: clubs[8])
+Venue.create(name: "MartialArts", category: "MartialArts", description: description, price: 17.99, club: clubs[0])
+Venue.create(name: "Boulderplanet", category: "Bouldering", description: description, price: 15.99, club: clubs[2])
+Venue.create(name: "Kletterfabrik Köln", category: "Bouldering", description: description, price: 70.99, club: clubs[3])
+Venue.create(name: "K11 | Bouldering in South City", category: "Bouldering", description: description, price: 33.99, club: clubs[4])
+Venue.create(name: "Stuntwerk Köln", category: "Bouldering", description: description, price: 11.10, club: clubs[5])
+Venue.create(name: "Kegelclub - Die Teddybären", category: "Kegel", description: description, price: 40.50, club: clubs[6])
+Venue.create(name: "City-Bowling Köln", category: "Bowling", description: description, price: 22.99, club: clubs[7])
+Venue.create(name: "WDR Volleyball", category: "Volleyball", description: description, price: 21.99, club: clubs[8])
 
 scjenusvenues = %w[Swimming Football Volleyball Basketball]
 scjenusvenues.each do |venue|

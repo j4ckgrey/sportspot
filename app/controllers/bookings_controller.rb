@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @club = @venue.club
     if @booking.save
-      redirect_to dashboard_path
+      redirect_to booking_confirmation_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,6 +32,11 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.destroy
     redirect_to dashboard_path, status: :see_other
+  end
+
+  def confirmation
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   private
