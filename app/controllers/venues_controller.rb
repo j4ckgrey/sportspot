@@ -9,6 +9,7 @@ class VenuesController < ApplicationController
   def show
     @booking = Booking.new
     authorize @venue
+    @reviews = @venue.reviews
     @markers = [
       {
         lat: @venue.club.latitude,
