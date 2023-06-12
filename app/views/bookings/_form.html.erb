@@ -1,5 +1,6 @@
+
 <%= simple_form_for [@venue, @booking] do |f| %>
-  <%= f.input :date %>
-  <%= f.input :time %>
-  <%= f.submit %>
+  <%= f.input :date, as: :date, html5: true %>
+  <%= f.input :time, as: :time, html5: true %>
+  <%= f.submit 'Request Booking', class: "btn btn-primary" %>
 <% end %>

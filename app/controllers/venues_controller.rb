@@ -28,6 +28,7 @@ class VenuesController < ApplicationController
   def destroy
     @venue = Venue.find(params[:id])
     @venue.destroy
+    authorize @venue
     redirect_to root_path, status: :see_other
   end
 
