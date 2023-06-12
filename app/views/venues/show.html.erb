@@ -1,20 +1,23 @@
 <div class="row">
 <div class="col-7 pt-5 ps-5">
-    <%= link_to "See club for the location", club_path(@venue), class:"btn btn-dark" %>
-  </div>
-  <div class="col-4 pt-3 text-center">
-    <h1><%= @venue.name %></h1>
-    <h4>Your <%= @venue.category %> Arena</h4>
-  </div>
+  <%= link_to "See club for the location", club_path(@venue), class:"btn btn-dark" %>
+</div>
+<div class="col-4 pt-3 text-center">
+  <h1><%= @venue.name %></h1>
+  <h4>Your <%= @venue.category %> Arena</h4>
+</div>
 </div>
 <div class="row">
   <div class="col-6 p-5">
-    <%= render "shared/carousel"%>
+    <%= render "shared/carousel", venue: @venue %>
   </div>
-  <div class="col-6 p-5 text-center">
+  <div class="col-6 p-5 text-center mt-5">
     <%= @venue.description %>
-    <% if current_user.is_user? %>
-      <%= link_to "create new booking", new_venue_booking_path(@venue), class:"m-5 btn d-flex justify-content-center", style:"color:white;background-color:#9cbfdd;"%>
+    <% if current_user.is_owner? || current_user.is_admin?%>
+      <%= link_to "edit venue",edit_venue_path(@venue), class:"club-card m-5 btn d-flex justify-content-center", style:"color:white;background-color:#9cbfdd;"%>
+      <a><%= link_to "delete venue",venue_path(@venue), class:"delete m-5 btn d-flex justify-content-center", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %></a>
+    <% else %>
+      <%= link_to "create new booking", new_venue_booking_path(@venue), class:"club-card m-5 btn d-flex justify-content-center", style:"color:white;background-color:#9cbfdd;"%>
     <% end %>
   </div>
 </div>

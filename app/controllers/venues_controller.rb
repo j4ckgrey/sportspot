@@ -1,11 +1,12 @@
 class VenuesController < ApplicationController
+  before_action :set_venue, only: %i[show edit update destroy]
+
   def index
     @venues = Venue.all
     @venues = policy_scope(Venue)
   end
 
   def show
-    @venue = Venue.find(params[:id])
     @booking = Booking.new
     authorize @venue
     @markers = [
@@ -23,15 +24,17 @@ class VenuesController < ApplicationController
   end
 
   def edit
+    authorize @venue
   end
 
   def destroy
-    @venue = Venue.find(params[:id])
+    authorize @venue
     @venue.destroy
     redirect_to root_path, status: :see_other
   end
 
   def update
+    authorize @venue
     if @venue.update(venue_params)
       redirect_to venue_path(@venue)
     else
@@ -48,6 +51,10 @@ class VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :category, :club_id)
+    params.require(:venue).permit(:name, :category, :club_id, photos: [])
+  end
+
+  def set_venue
+    @venue = Venue.find(params[:id])
   end
 end

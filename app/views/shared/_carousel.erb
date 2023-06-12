@@ -5,9 +5,17 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
-        <div class="carousel-item d-flex justify-content-center active" >
-           <img src="https://www.axicorp.de/fileadmin/_processed_/6/b/csm_s-motive_AdobeStock_223415515_e9a05aadfa.jpeg" class="img-thumbnail d-block w-100" alt="..." style="height:1000;width:400;crop::fill;">
+    <% if venue.photos.present? %>
+      <% venue.photos.each do |photo| %>
+        <div class="carousel-item d-flex justify-content-center <%= "active" if photo == venue.photos.first %>">
+          <%= cl_image_tag photo.key, height: 500, width: 600, crop: :fill, class:"d-block img-thumbnail my-5"%>
+        </div>
+      <%end%>
+    <% else %>
+      <div class="carousel-item d-flex justify-content-center active">
+        <%= image_tag "venue_default.jpeg", height: "500", width: "600", class:"d-block img-thumbnail my-5"%>
       </div>
+    <% end %>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
