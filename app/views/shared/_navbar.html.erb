@@ -16,7 +16,11 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "Jack.jpg", class: "avatar", alt: "dropdown menu" %>
+            <% if current_user.photo.present? %>
+              <%= cl_image_tag current_user.photo.key, class:"avatar", alt: "dropdown menu"%>
+            <% else %>
+              <%= image_tag "acc_default.png", class: "avatar", alt: "dropdown menu" %>
+            <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <p class="fs-7 d-block p-2 text-dark"><%= current_user.first_name %></p>
