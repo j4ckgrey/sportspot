@@ -21,4 +21,8 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     user.is_admin? || user.is_user?
   end
+
+  def confirmation?
+    user.is_user?
+  end
 end

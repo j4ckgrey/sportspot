@@ -1,0 +1,6 @@
+<div class="container">
+  <%= simple_form_for [@club, @chatroom] do |f| %>
+    <%= f.input :name, label: 'Please write your concern' %>
+    <%= f.submit :submit %>
+  <% end %>
+</div>
