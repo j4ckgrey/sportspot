@@ -1,0 +1,5 @@
+<div class="container mt-5 text-center">
+  <p>Your booking request to <%= @booking.venue.club.name %> of Venue <%= @booking.venue.name %> has been sent to the property successfully</p>
+  <p>Your booking will take 24 hours to process by the Club</p>
+  <%= link_to "Click here to get back to your dashboard", dashboard_path, class:"btn btn-success club-card d-block mb-3" %>
+</div>

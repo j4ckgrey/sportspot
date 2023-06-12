@@ -30,6 +30,7 @@ class VenuesController < ApplicationController
   def destroy
     authorize @venue
     @venue.destroy
+    authorize @venue
     redirect_to root_path, status: :see_other
   end
 

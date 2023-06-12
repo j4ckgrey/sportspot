@@ -2,13 +2,13 @@
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand fa-solid fa-volleyball btn-hover" do %>
     <% end %>
-    <div class="d-flex justify-content-center mt-3 w-100">
+    <form class="d-flex">
       <%= form_tag(search_path, method: :get) do %>
-        <%= text_field_tag :query, params[:query], placeholder: "Your post code", class:"rounded"%>
-        <%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball"]), include_blank: 'Select Category'%>
-        <%= submit_tag "Search", class:"rounded"%>
+        <div class="btn btn-light"><%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball"]) %></div>
+        <%= text_field_tag :query, params[:query], placeholder: "Enter City or Zip-code", class:"form-control me-2" %>
+        <%= submit_tag "Search", class:"btn btn-light"%>
       <% end%>
-    </div>
+    </form>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
 
@@ -26,7 +26,7 @@
               <p class="fs-7 d-block p-2 text-dark"><%= current_user.first_name %></p>
               <%= link_to "All venues", venues_path, class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
               <%= link_to "Dashboard", dashboard_path, class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
-              <%= link_to "Messages", "#", class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
+              <%= link_to "Messages", chatrooms_path, class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
             </div>
           </li>

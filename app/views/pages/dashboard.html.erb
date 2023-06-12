@@ -1,19 +1,51 @@
-<div class="container mb-5">
+<div class="container my-5">
   <% if current_user.is_user? %>
-    <h1 class="bg-secondary bg-gradient">Here are your bookings</h1>
-    <ul><% @mybookings.each do |booking| %></ul>
-      <li><%= booking.venue.club.name %></li>
-      <li><%= booking.venue.name %></li>
-      <li><%= booking.date %></li>
-      <li><%= booking.time %></li>
-      <li><%= booking.status %></li>
-      <%= link_to "Cancel my Booking", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel?' }, class:"btn btn-primary btn-sm" %>
-    <ul><% end %></ul>
-  <ul><% end %></ul>
+    <h1 class="text-center mt-5 strong bg-secondary bg-gradient text-white">Your bookings</h1>
+    <% @mybookings.each do |booking| %>
+      <div class="card mb-2">
+        <div class="card-body d-flex justify-content-between align-items-center p-3">
+          <div>
+            <h3><small>Club: <%= booking.venue.club.name %></small></h3>
+            <h3><small>Venue: <%= booking.venue.name %><small></h3>
+            <h6>On: <%= booking.date %> <%= booking.time.strftime("at %l:%M %p") %></h6>
+          </div>
+          <div>
+            <p class="w-100 badge rounded-pill bg-danger"><%= booking.status %></p>
+            <%= link_to "Cancel my Booking", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel?' }, class:"d-block btn btn-secondary btn-sm" %>
+            <% if booking.confirmed? %>
+              <button type="button" class="w-100 mt-2 btn d-flex justify-content-center", style="color:white;background-color:#9cbfdd;" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit review</button>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <%= simple_form_for(@review) do |f| %>
+                      <div class="modal-body">
+                        <%= f.hidden_field :booking_id, { value: booking.id } %>
+                        <%= f.input :title %>
+                        <%= f.input :comment %>
+                        <%= f.input :rating %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <%= f.submit 'Submit', class: "btn btn-primary" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 
   <% if current_user.is_owner? %>
     <div class="row justify-content-center">
-      <h3 class="text-center mt-5 strong bg-secondary bg-gradient text-white">Your owned clubs</h3>
+      <h3 class="text-center strong bg-secondary bg-gradient text-white">Your owned clubs</h3>
       <% @owns.each do |club| %>
         <div class="card club-card shadow p-3 mb-4 bg-white rounded-3 text-center m-3" style="width: 15rem; height:15rem;">
           <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="card-img-top shadow border-1 rounded-3 mt-1" alt="Club Image">
@@ -26,45 +58,43 @@
         </div>
       <% end %>
     </div>
-  <% end %>
-
-  <% if current_user.is_owner? %>
     <h3 class="bg-secondary bg-gradient text-white text-center">Pending requests</h3>
-      <div class="card mb-2 shadow rounded-3" style="max-width: 1300px;">
-        <div class="row g-0 border">
-          <div class="col-md-8">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <% current_user.venues.each do |venue| %>
-                <% venue.bookings.each do |booking| %>
-                  <% if booking.status == 'pending' %>
-                    <%= booking.user.first_name %> has made a booking for <%= venue.name %>
-                    <%= link_to "Confirm", booking_path(booking, booking: {status: :confirmed}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to confirm?' }, class:"btn btn-primary btn-sm" %>
-                    <%= link_to "Decline", booking_path(booking, booking: {status: :declined}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to decline?' }, class:"btn btn-secondary btn-sm" %>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </div>
+    <div class="card">
+      <% current_user.venues.each do |venue| %>
+        <% venue.bookings.each do |booking| %>
+          <div class="card-body d-flex justify-content-between align-items-center p-3">
+            <% if booking.pending? %>
+              <div>
+                <h3><%= booking.user.first_name %> has made a booking for the following:</h3>
+                <h3><small>For club: <%= booking.venue.club.name %></small></h3>
+                <h3><small>In venue: <%= booking.venue.name %><small></h3>
+                <h6>On: <%= booking.date %> <%= booking.time.strftime("at %l:%M %p") %></h6>
+              </div>
+              <div>
+                <%= link_to "Confirm", booking_path(booking, booking: {status: :confirmed}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to confirm?' }, class:"btn btn-primary btn-sm" %>
+                <%= link_to "Decline", booking_path(booking, booking: {status: :declined}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to decline?' }, class:"btn btn-secondary btn-sm" %>
+              </div>
+            <% end %>
           </div>
-        </div>
-      </div>
-  <% end %>
-
-  <% if current_user.is_owner? %>
+        <% end %>
+      <% end %>
+    </div>
     <h3 class="bg-secondary bg-gradient text-white text-center">Upcoming bookings</h3>
-      <div class="card mb-2 shadow rounded-3" style="max-width: 1300px;">
-        <div class="row g-0 border">
-          <div class="col-md-8">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <% current_user.venues.each do |venue| %>
-                <% venue.bookings.each do |booking| %>
-                  <% if booking.confirmed? %>
-                    <%= booking.user.first_name %> has made a booking for <%= venue.name %> on <%= booking.date %> at <%= booking.time %>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </div>
+    <div class="card">
+      <% current_user.venues.each do |venue| %>
+        <% venue.bookings.each do |booking| %>
+          <div class="card-body d-flex justify-content-between align-items-center p-3">
+            <% if booking.confirmed? %>
+              <div>
+                <h6><%= booking.user.first_name %> has made a booking for <%= venue.name %> on <%= booking.date %> at <%= booking.time %></h6>
+              </div>
+              <div>
+                <p class="w-100 badge rounded-pill bg-primary"><%= booking.status %></p>
+              </div>
+            <% end %>
           </div>
-        </div>
-      </div>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 </div>

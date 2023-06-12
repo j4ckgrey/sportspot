@@ -29,14 +29,13 @@ class ClubsController < ApplicationController
     @club = Club.new(club_params)
     @club.user = current_user
     @club.address = "#{@club[:street]}, #{@club[:city]}, #{@club[:zip_code]}"
-    #raise
     authorize @club
     if @club.save
       redirect_to club_path(@club)
     else
       render :new, status: :unprocessable_entity
     end
-    # when a club is created, add the owner to the current user roles
+    @club.user.roles = ['owner']
   end
 
   def edit

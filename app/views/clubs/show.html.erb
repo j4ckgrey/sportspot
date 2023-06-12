@@ -11,10 +11,12 @@
         <%= link_to "edit club",edit_club_path(@club), class:"club-card m-5 btn d-flex justify-content-center", style:"color:white;background-color:#9cbfdd;"%>
       <% end %>
     </div>
+
     <div class="col-6">
+    <%= link_to "Click here to chat with the Club", new_club_chatroom_path(@club), class:"btn btn-success club-card d-block mb-3" %>
       <h1>List of all facilities in this Club</h1>
       <% @venues.each do |venue| %></ul>
-        <div class="card mx-3" style="max-width: 540px; height: 130px;">
+        <div class="card club-card mx-3" style="max-width: 540px; height: 130px;">
           <div class="row">
             <div class="col-4">
               <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="h-100 img-fluid rounded-start" alt="...">
