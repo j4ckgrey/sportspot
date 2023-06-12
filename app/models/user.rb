@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :created_chatrooms, class_name: 'Chatroom', foreign_key: 'creator_id'
   has_many :clubroom_chatrooms, class_name: 'Chatroom', foreign_key: 'club_owner_id'
 
+  has_one_attached :photo
+
   def is_user?
     roles.include?("user")
   end
