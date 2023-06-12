@@ -106,6 +106,9 @@
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#confirmed" type="button" role="tab" aria-controls="confirmed" aria-selected="false">Confirmed</button>
       </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+      </li>
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="clubs" role="tabpanel" aria-labelledby="home-tab">
@@ -156,6 +159,10 @@
           <% end %>
         <% end %>
       </div>
+      </div>
+      <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="home-tab">
+        <%= render "shared/user", user: @user %>
+        <%= link_to "Edit", edit_user_registration_path(@user) %>
       </div>
     </div>
   <% end %>
