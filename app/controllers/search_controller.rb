@@ -18,8 +18,7 @@ class SearchController < ApplicationController
         {
           lat: club.latitude,
           lng: club.longitude,
-          title: club.name,
-          description: club.address
+          info_window_html: render_to_string(partial: "shared/info_window", locals: { club: club })
         }
       end
     else
@@ -44,7 +43,4 @@ class SearchController < ApplicationController
       Club.all.distinct
     end
   end
-
-
-
 end
