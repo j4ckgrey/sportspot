@@ -41,20 +41,17 @@ html, body {
 }
 
 .search-select {
-  /* Add your custom styles for the select dropdown */
-  /* Example styles: */
-  width: 200px; /* Adjust the width as needed */
+
+  width: 200px;
   padding: 8px;
-  height: auto; /* Allow the dropdown height to adjust based on content */
+  height: auto;
   border: 1px solid #ccc;
   background-color: #f7f7f7;
 }
 
 .search-button {
-  /* Add your custom styles for the search button */
-  /* Example styles: */
   padding: 8px 16px;
-  background-color: #4caf50;
+  background-color: #28a745;
   color: #fff;
   border: none;
   cursor: pointer;
