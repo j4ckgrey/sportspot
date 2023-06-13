@@ -37,7 +37,7 @@
     </div>
     <div class="col-md-4">
       <div class="sticky-top" style="top: 180px;">
-        <div style="width: 100%; height: 500px;" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        <%= render "shared/map" %>
       </div>
     </div>
   </div>
