@@ -34,7 +34,7 @@
   </div>
 </nav>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)), url(<%= image_path("kegel.jpg") %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)), url(<%= image_path("bkbl.jpg") %>);">
   <div class="container title">
     <h1 class="display-1 banner-text text-green" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;"><strong>SportSpot</strong></h1>
     <p class="mb-4 banner-text text-white" style="text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;">Book, Play and Conquer!</p>
@@ -45,7 +45,7 @@
         <div class="col-lg-8 col-md-10 col-sm-12">
           <div class="input-group">
             <%= text_field_tag :query, params[:query], class: "form-control rounded-start me-2", placeholder: "Search by your city or postal code" %>
-            <%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball"], @category), prompt: "Select a category", class: "form-select rounded-end me-2" %>
+            <%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball", "Squash"], @category), prompt: "Select a category", class: "form-select rounded-end me-2" %>
             <%= submit_tag "Search", class: "btn btn-primary" %>
           </div>
         </div>
@@ -55,45 +55,45 @@
 </div>
 
 <div class="container my-5">
-  <h2 class="text-center mb-4">Look through the categories</h2>
+  <h2 class="text-center mb-4 banner-text">Look through the categories</h2>
   <div id="categoryCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="row">
-          <div class="col-md-3">
-            <div class="card h-75">
+          <div class="col-md-3 ">
+            <div class="card club-card shadow h-75">
               <img src="<%= asset_path('football.jpg') %>" class="card-img-top" alt="Football" style="height: 200px; object-fit: cover;">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Football</h5>
+                <h5 class="card-title"><strong>Football</strong></h5>
               </div>
-              <a href="<%= search_path(category: 'Football') %>" class="stretched-link"></a>
+              <a href="<%= search_path(query: "", category: 'Football') %>" class="stretched-link"></a>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card h-75">
+            <div class="card club-card shadow h-75">
               <img src="<%= asset_path('martial-arts.jpg') %>" class="card-img-top" alt="Martial Arts" style="height: 200px; object-fit: cover;">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Martial Arts</h5>
+                <h5 class="card-title fw-bold"><strong>Martial Arts</strong></h5>
               </div>
-              <a href="<%= search_path(category: 'MartialArts') %>" class="stretched-link"></a>
+              <a href="<%= search_path( query: "", category: 'MartialArts') %>" class="stretched-link"></a>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card h-75">
+            <div class="card club-card shadow h-75">
               <img src="<%= asset_path('bouldering.jpg') %>" class="card-img-top" alt="Bouldering" style="height: 200px; object-fit: cover;">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Bouldering</h5>
+                <h5 class="card-title fw-bold"><strong>Bouldering</strong></h5>
               </div>
-              <a href="<%= search_path(category: 'Bouldering') %>" class="stretched-link"></a>
+              <a href="<%= search_path(query: "", category: 'Bouldering') %>" class="stretched-link"></a>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card h-75">
+            <div class="card club-card shadow h-75">
               <img src="<%= asset_path('kegel.jpg') %>" class="card-img-top" alt="Kegel" style="height: 200px; object-fit: cover;">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Kegel</h5>
+                <h5 class="card-title fw-bold"><strong>Kegel</strong></h5>
               </div>
-              <a href="<%= search_path(category: 'Kegel') %>" class="stretched-link"></a>
+              <a href="<%= search_path(query: "", category: 'Kegel') %>" class="stretched-link"></a>
             </div>
           </div>
         </div>
@@ -101,47 +101,47 @@
       <div class="carousel-item">
         <div class="row">
           <div class="col-md-3">
-            <div class="card h-75">
+            <div class="card club-card shadow h-75">
               <img src="<%= asset_path('bowling.jpg') %>" class="card-img-top" alt="Bowling" style="height: 200px; object-fit: cover;">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Bowling</h5>
+                <h5 class="card-title fw-bold"><strong>Bowling</strong></h5>
               </div>
-              <a href="<%= search_path(category: 'Bowling') %>" class="stretched-link"></a>
+              <a href="<%= search_path(query: "", category: 'Bowling') %>" class="stretched-link"></a>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card h-75">
+            <div class="card club-card shadow h-75">
               <img src="<%= asset_path('volleyball.jpg') %>" class="card-img-top" alt="Volleyball" style="height: 200px; object-fit: cover;">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Volleyball</h5>
+                <h5 class="card-title fw-bold"><strong>Volleyball</strong></h5>
               </div>
-              <a href="<%= search_path(category: 'Volleyball') %>" class="stretched-link"></a>
+              <a href="<%= search_path(query: "", category: 'Volleyball') %>" class="stretched-link"></a>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card h-75">
+            <div class="card club-card shadow h-75">
               <img src="<%= asset_path('tennis.jpg') %>" class="card-img-top" alt="Tennis" style="height: 200px; object-fit: cover;">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Tennis</h5>
+                <h5 class="card-title fw-bold"><strong>Tennis</strong></h5>
               </div>
-              <a href="<%= search_path(category: 'Tennis') %>" class="stretched-link"></a>
+              <a href="<%= search_path(query: "", category: 'Tennis') %>" class="stretched-link"></a>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="card h-75">
+            <div class="card club-card shadow h-75">
               <img src="<%= asset_path('squash.jpg') %>" class="card-img-top" alt="Squash" style="height: 200px; object-fit: cover;">
               <div class="card-body">
-                <h5 class="card-title fw-bold">Squash</h5>
+                <h5 class="card-title fw-bold"><strong>Squash</strong></h5>
               </div>
-              <a href="<%= search_path(category: 'Squash') %>" class="stretched-link"></a>
+              <a href="<%= search_path(query: "", category: 'Squash') %>" class="stretched-link"></a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#categoryCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+      <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+      <span class="visually-hidden" filter: invert(100%)>Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#categoryCarousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -150,7 +150,7 @@
   </div>
 </div>
 
-<h2 class="text-center mb-4">Checkout these cities</h2>
+<h2 class="text-center mb-4 banner-text">Checkout these cities</h2>
 
 <div class="container">
   <div class="row">
@@ -198,7 +198,7 @@
 <div class="container">
   <div class="row my-5">
     <div class="col-lg-8">
-      <h2 class="text-center mb-4">Ever played here?</h2>
+      <h2 class="text-center mb-4 banner-text">Ever played here?</h2>
       <div class="row">
         <% @clubs.first(4).each do |club| %>
           <div class="col-md-6 mb-4">
