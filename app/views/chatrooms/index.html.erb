@@ -1,7 +1,7 @@
   <div class="container py-5">
     <div class="row">
       <div class="col-xl-12 col-lg-5 col-xl-4 mb-4 mb-md-0">
-        <h1 class="font-weight-bold mb-3 text-center text-lg-start">Your chats</h1>
+        <h3 class="font-weight-bold mb-3 text-center bg-secondary bg-gradient text-light">Your chats</h3>
         <div class="card">
           <% @chatrooms.each do |chatroom| %>
             <% if chatroom.creator == current_user || chatroom.club_owner == current_user %>
