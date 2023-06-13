@@ -6,18 +6,18 @@ class SearchController < ApplicationController
     @results = policy_scope(@results)
 
     if @query.blank?
-      flash.now[:alert] = "Please provide a city or postal code."
-      @clubs = Club.all
+      flash.now[:alert] = "You did not give any city or postal code. We are showing all the venues that offer #{@category}."
+      @venues = Venue.all.includes(:club)
     else
-      @clubs = @results
+      @venues = @results.includes(:club)
     end
 
-    if @clubs.present?
-      @markers = @clubs.map do |club|
+    if @venues.present?
+      @markers = @results.map do |venue|
         {
-          lat: club.latitude,
-          lng: club.longitude,
-          info_window_html: render_to_string(partial: "shared/info_window", locals: { club: club })
+          lat: venue.club.latitude,
+          lng: venue.club.longitude,
+          info_window_html: render_to_string(partial: "shared/info_window", locals: { venue: venue })
         }
       end
     else
@@ -25,28 +25,56 @@ class SearchController < ApplicationController
     end
   end
 
+
+
   def search_results(query, category)
     if query =~ /^\d{5}$/
       if category.blank? || category == "All"
-        Club.joins(venues: :club).where("CAST(clubs.zip_code AS VARCHAR) LIKE ?", "%#{query}%").distinct
+        Venue.joins(:club).where("CAST(clubs.zip_code AS VARCHAR) LIKE ?", "%#{query}%").distinct
       else
-        Club.joins(:venues).where("clubs.zip_code = ? AND venues.category = ?", query.to_i, category).distinct
+        Venue.joins(:club).where("clubs.zip_code = ? AND venues.category = ?", query.to_i, category).distinct
       end
     elsif query =~ /^[a-zäöüß\s]+$/i
       if category.blank? || category == "All"
-        Club.joins(venues: :club).where("LOWER(clubs.city) LIKE ?", "%#{query.downcase}%").distinct
+        Venue.joins(:club).where("LOWER(clubs.city) LIKE ?", "%#{query.downcase}%").distinct
       else
-        Club.joins(:venues).where("LOWER(clubs.city) LIKE ? AND venues.category = ?", "%#{query.downcase}%", category).distinct
+        Venue.joins(:club).where("LOWER(clubs.city) LIKE ? AND venues.category = ?", "%#{query.downcase}%", category).distinct
       end
     elsif query == ""
       if category.blank? || category == "All"
-        Club.all.distinct
+        Venue.all.distinct
       else
-        Club.joins(:venues).where("venues.category = ?", category).distinct
+        Venue.where(category: category).distinct
       end
-
     else
-      Club.all.distinct
+      Venue.all.distinct
     end
   end
 end
+
+
+# def search_results(query, category)
+#   if query =~ /^\d{5}$/
+#     if category.blank? || category == "All"
+#       Club.joins(venues: :club).where("CAST(clubs.zip_code AS VARCHAR) LIKE ?", "%#{query}%").distinct
+#     else
+#       Club.joins(:venues).where("clubs.zip_code = ? AND venues.category = ?", query.to_i, category).distinct
+#     end
+#   elsif query =~ /^[a-zäöüß\s]+$/i
+#     if category.blank? || category == "All"
+#       Club.joins(venues: :club).where("LOWER(clubs.city) LIKE ?", "%#{query.downcase}%").distinct
+#     else
+#       Club.joins(:venues).where("LOWER(clubs.city) LIKE ? AND venues.category = ?", "%#{query.downcase}%", category).distinct
+#     end
+#   elsif query == ""
+#     if category.blank? || category == "All"
+#       Club.all.distinct
+#     else
+#       Club.joins(:venues).where("venues.category = ?", category).distinct
+#     end
+
+#   else
+#     Club.all.distinct
+#   end
+# end
+# end
