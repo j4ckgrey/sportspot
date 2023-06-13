@@ -12,7 +12,6 @@ class SearchController < ApplicationController
       @clubs = @results
     end
 
-    # Check if @clubs is not nil before assigning @markers
     if @clubs.present?
       @markers = @clubs.map do |club|
         {
@@ -22,7 +21,7 @@ class SearchController < ApplicationController
         }
       end
     else
-      @markers = [] # Empty array if no clubs found
+      @markers = []
     end
   end
 
@@ -39,6 +38,13 @@ class SearchController < ApplicationController
       else
         Club.joins(:venues).where("LOWER(clubs.city) LIKE ? AND venues.category = ?", "%#{query.downcase}%", category).distinct
       end
+    elsif query == ""
+      if category.blank? || category == "All"
+        Club.all.distinct
+      else
+        Club.joins(:venues).where("venues.category = ?", category).distinct
+      end
+
     else
       Club.all.distinct
     end
