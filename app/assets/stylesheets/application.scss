@@ -106,3 +106,28 @@ html, body {
   z-index: 1000;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 50px;
+  width: 50px;
+  outline: black;
+  background-size: 35%, 35%;
+  border-radius: 50%;
+  //border: 1px solid black;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 50px;
+  color: rgb(166, 255, 0);
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  // top:50%;
+  // height:0;
+  font-size: 50px;
+  color: rgb(166, 255, 0);
+}
