@@ -1,0 +1,29 @@
+<button type="button" class="btn btn-success club-card" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Show Venues</button>
+<div class="modal fade modal-m" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">All Facilities</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <% @venues.each do |venue| %></ul>
+          <div class="card shadow club-card bg-light m-4" style="max-width: 540px; height: 130px;">
+            <div class="row">
+              <div class="col-4">
+                <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="h-100 img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%= venue.name %>     <%=venue.price%>€</h5>
+                  <p class="card-text"><%= venue.description[0, 50] %></p>
+                  <%= link_to "", venue, class:"stretched-link" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
