@@ -1,5 +1,59 @@
+<div class="row m-4">
+  <div class="col-6 d-flex justifty-start">
+    <%= link_to "To Dashboard", dashboard_path, class:"btn club-card d-block mb-3", style:"background-color:#9cbfdd"%>
+  </div>
+
+  <div class="col-6 d-flex justify-content-end">
+    <%= link_to "See more", venues_path, class:"btn btn-success club-card d-block mb-3"%>
+  </div>
+</div>
+
+
 <div class="container mt-5 text-center">
-  <p>Your booking request to <%= @booking.venue.club.name %> of Venue <%= @booking.venue.name %> has been sent to the property successfully</p>
-  <p>Your booking will take 24 hours to process by the Club</p>
-  <%= link_to "Click here to get back to your dashboard", dashboard_path, class:"btn btn-success club-card d-block mb-3" %>
+  <h1>Booking Confirmation</h1>
+  <h3>Dear <%= @booking.user.first_name %> <%= @booking.user.last_name %></h3>
+  <p>Thank you our fpr your booking request with SportSpot!
+  <p>Your request for <%= @booking.venue.name %> has been transfered to <%= @booking.venue.club.name %>!</p>
+  <p><%= @booking.venue.club.name %> has 24 hours to process your booking</p>
+
+  <div class="row mt-5">
+    <div class="col-6">
+    <h3>gVenue</h3>
+      <div class="card shadow club-card bg-light m-4" style="max-width: 540px; height: 130px;">
+        <div class="row">
+          <div class="col-4">
+            <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="h-100 img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= @booking.venue.name %>     <%=@booking.venue.price%>€</h5>
+              <p class="card-text"><%= @booking.venue.description[0, 50] %></p>
+              <%= link_to "", venue_path, class:"stretched-link" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <h3>Club</h3>
+      <div class="card shadow club-card bg-light m-4" style="max-width: 540px; height: 130px;">
+        <div class="row">
+          <div class="col-4">
+            <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="h-100 img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= @booking.venue.club.name %></h5>
+              <div class="card-text">
+                <p><%=@booking.venue.club.address%>           <%= @booking.venue.club.phone_number %></p>
+              </div>
+              <%= link_to "", club_path, class:"stretched-link" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
