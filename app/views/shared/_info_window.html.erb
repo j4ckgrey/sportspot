@@ -1,2 +1,13 @@
-<h2><%= club.name %></h2>
-<p><%= club.address %></p>
+<% if current_page?(search_path) %>
+  <h4><%= venue.club.name %></h4>
+  <h6><%= venue.club.address %></h6>
+  <%= link_to "More...", venue_path(venue.id), class: "butn-more" %>
+<%else%>
+  <h4><%= club.name %></h4>
+  <h6><%= club.address %></h6>
+  <%= link_to "More...", club_path(club.id), class: "butn-more" %>
+<% end %>
+
+<%# <% @venues.each do |venue| %>
+
+<%# <% end %> %>
