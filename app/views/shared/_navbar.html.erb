@@ -1,8 +1,9 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:#9cbfdd">
-  <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand fa-solid fa-volleyball btn-hover" do %>
+<nav class="navbar navbar-expand-sm fixed-top navbar-lewagon" style="background-color:#9cbfdd;position:sticky;">
+  <div class="container">
+    <%= link_to "/", class: "navbar-brand text-decoration-none" do %>
+     <%= image_tag "sportspot-logo_blue.png", class: "logo ms-2", style:"width:80px;"%>
     <% end %>
-    <div class="d-flex justify-content-center align-items-center mt-3 h-100">
+    <div class="d-flex justify-content-center align-items-center mt-1 h-100">
       <%= form_tag(search_path, method: :get) do %>
         <%= text_field_tag :query, params[:query], placeholder: "Your post code", class: "rounded search-input" %>
         <%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball"]), include_blank: 'Select Category', class: "rounded search-select" %>
@@ -20,13 +21,13 @@
               <%= image_tag "acc_default.png", class: "avatar", alt: "dropdown menu" %>
             <% end %>
           </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <p class="fs-7 d-block p-2 text-dark"><%= current_user.first_name %></p>
-              <%= link_to "All venues", venues_path, class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
-              <%= link_to "All clubs", clubs_path, class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
-              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
-              <%= link_to "Messages", chatrooms_path, class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
-              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item border d-block p-2 bg-secondary text-white" %>
+            <div class="dropdown-menu dropdown-menu-end bg-white" aria-labelledby="navbarDropdown">
+              <h5 class="fs-7 d-block p-2 text-dark text-center"><%= current_user.first_name %></h5>
+              <%= link_to "All venues", venues_path, class: "text-center dropdown-item border d-block p-2 soft_blue" %>
+              <%= link_to "All clubs", clubs_path, class: "text-center dropdown-item border d-block p-2 soft_blue" %>
+              <%= link_to "Dashboard", dashboard_path, class: "text-center dropdown-item border d-block p-2 soft_blue" %>
+              <%= link_to "Messages", chatrooms_path, class: "text-center dropdown-item border d-block p-2 soft_blue" %>
+              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "text-center dropdown-item border d-block p-2 soft_blue" %>
             </div>
           </li>
         <% else %>
@@ -37,4 +38,4 @@
       </ul>
     </div>
   </div>
-</div>
+</nav>
