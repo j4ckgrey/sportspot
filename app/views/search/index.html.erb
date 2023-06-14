@@ -16,13 +16,13 @@
                       <h1 class="card-title"><%= result.name %></h1>
                       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                       <div class="venue-buttons">
-                        <% result.venues.each do |venue| %>
+                        <% result.club.venues.each do |venue| %>
                           <%= button_to venue.name, venue_path(venue), method: :get, class: "btn btn-secondary venue-button" %>
                         <% end %>
                       </div>
-                      <%= link_to "", club_path(result), class: "stretched-link" %>
+                      <%= link_to "", venue_path(result.id), class: "stretched-link" %>
                     </div>
-                    <p class="card-text"><small class="text-muted"><%= result.address %></small></p>
+                    <p class="card-text"><%= result.club.address %></p>
                   </div>
                 </div>
               </div>
