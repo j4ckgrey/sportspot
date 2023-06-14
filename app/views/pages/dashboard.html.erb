@@ -142,7 +142,7 @@
             <% venue.bookings.each do |booking| %>
               <% if booking.pending? %>
                 <div>
-                  <h3><%= booking.user.first_name %> requested booking for <%= booking.venue.name %> in <%= booking.venue.club.name %></h3>
+                  <h3><strong><%= booking.user.first_name %></strong> requested booking for <strong><%= booking.venue.name %></strong> in <%= booking.venue.club.name %></h3>
                   <h6>On: <%= booking.date %> <%= booking.time.strftime("at %l:%M %p") %></h6>
                 </div>
                 <div>
@@ -161,7 +161,7 @@
             <% venue.bookings.each do |booking| %>
               <% if booking.confirmed? %>
                 <div>
-                  <h6><%= booking.user.first_name %> has made a booking for <%= venue.name %> on <%= booking.date %> at <%= booking.time %></h6>
+                  <h6><strong><%= booking.user.first_name %></strong>'s booking for <strong><%= venue.name %></strong> on <%= booking.date %> at <%= booking.time.strftime("at %l:%M %p") %> has been confirmed</h6>
                 </div>
               <% end %>
             <% end %>
