@@ -4,10 +4,10 @@
     <h6 class="badge pt-2 rounded-pill bg-secondary">Price: <%=@venue.price%>€ / Hour</h6>
   </div>
   <div class="row">
-    <div class="col-6 p-3">
+    <div class="col-6 mx-3 p-3">
       <%= render "shared/carousel", venue: @venue %>
     </div>
-    <div class="col-6 p-3 text-center d-flex flex-column justify-content-between">
+    <div class="col-5 p-3 text-center d-flex flex-column justify-content-between">
       <div>
         <h1><%= @venue.name %></h1>
         <h4>Your <%= @venue.category %> Arena</h4>
