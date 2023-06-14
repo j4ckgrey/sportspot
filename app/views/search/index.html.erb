@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col-md-8">
+      
       <% if @results.any? %>
         <h3 class="text-center my-5 bg-secondary bg-gradient text-white">Search Results:</h3>
         <div class="container mx-auto">
@@ -24,11 +25,12 @@
                     </div>
                     <p class="card-text"><%= result.club.address %></p>
                   </div>
+                  <p class="card-text"><small class="text-muted"><%= result.address %></small></p>
                 </div>
               </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% else %>
         <div class="text-center m-5">
           <p>No results found.</p>
@@ -36,7 +38,7 @@
       <% end %>
     </div>
     <div class="col-md-4">
-      <div class="sticky-top" style="top: 180px;">
+      <div class="sticky-top">
         <%= render "shared/map" %>
       </div>
     </div>
