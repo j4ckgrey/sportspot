@@ -1,0 +1,14 @@
+.soft_blue{
+  background-color: #9cbfdd;
+  color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+}
+
+.soft_blue:hover{
+  background-color: #9cbfdd;
+  color: white;
+  box-shadow: 3px 4px 4px 1px #e9ecef;
+  transform: scale(1.02);
+}
