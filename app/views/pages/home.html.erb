@@ -37,8 +37,7 @@
     </div>
   </div>
 </nav>
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)), url(<%= image_path("bkbl.jpg") %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)), url(<%= image_path("1.jpg") %>);">
   <div class="container title">
     <h1 class="display-1 banner-text text-green" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;"><strong>SportSpot</strong></h1>
     <p class="mb-4 banner-text text-white" style="text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;">Book, Play and Conquer!</p>
@@ -59,7 +58,7 @@
 </div>
 
 <div class="container my-5">
-  <h2 class="text-center mb-4 banner-text">Look through the categories</h2>
+  <h2 class="text-center mb-4 banner-text">Categories</h2>
   <div id="categoryCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -82,6 +81,7 @@
               <a href="<%= search_path( query: "", category: 'MartialArts') %>" class="stretched-link"></a>
             </div>
           </div>
+
           <div class="col-md-3">
             <div class="card club-card shadow h-75">
               <img src="<%= asset_path('bouldering.jpg') %>" class="card-img-top" alt="Bouldering" style="height: 200px; object-fit: cover;">
@@ -143,14 +143,14 @@
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#categoryCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="false"></span>
-      <span class="visually-hidden" filter: invert(100%)>Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#categoryCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+      <button class="carousel-control-prev" type="button" data-bs-target="#categoryCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+        <span class="visually-hidden" filter: invert(100%)>Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#categoryCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
   </div>
 </div>
 
