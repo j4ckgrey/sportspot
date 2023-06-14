@@ -21,6 +21,7 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
+    @club = Club.find(params[:club_id])
     authorize @venue
   end
 
@@ -46,14 +47,20 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
-    @venue.user = current_user
+    @venue.club = Club.find(params[:club_id])
     authorize @venue
+    # raise
+    if @venue.save
+      redirect_to venue_path(@venue), notice: "Venue created successfully."
+    else
+      render "pages/dashboard", status: :unprocessable_entity
+    end
   end
 
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :category, :club_id, photos: [])
+    params.require(:venue).permit(:name, :category, :description, :price, photos: [])
   end
 
   def set_venue

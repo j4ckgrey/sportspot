@@ -80,3 +80,5 @@ end
 
 gem "geocoder", "~> 1.8"
 gem "cloudinary"
+gem 'faker'
+gem 'httparty'

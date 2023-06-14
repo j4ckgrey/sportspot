@@ -1,4 +1,4 @@
-<div class="container bg-light shadow my-5">
+<div class="container bg-light shadow my-5 align-content-center">
   <div class="px-3 pt-3 d-flex justify-content-between">
     <%= link_to "Back to Club", club_path(@venue.club), class:"btn club-card", style:"color:white;background-color:#9cbfdd" %>
     <h6 class="badge pt-2 rounded-pill bg-secondary">Price: <%=@venue.price%>€ / Hour</h6>
@@ -45,7 +45,7 @@
   <div class="row">
   <h3 class="bg-secondary bg-gradient text-center text-light">Reviews</h3>
     <% @reviews.each do |review| %>
-      <div class="border px-5 py-3 mb-2">
+      <div class="col-12 border px-5 py-3 mb-2">
         <h4 class="bg-light bg-gradient"><%= review.title %></h4>
         <div>
           <% review.rating.times do %>
