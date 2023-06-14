@@ -32,8 +32,7 @@ html, body {
   letter-spacing: 5px;
 }
 .search-input {
-  /* Add your custom styles for the text input field */
-  /* Example styles: */
+  font-family: 'Courier New', Courier, monospace;
   width: 200px;
   padding: 8px;
   border: 1px solid #ccc;
@@ -132,4 +131,9 @@ html, body {
 .butn-more{
   text-decoration: none;
   color: blue;
+}
+
+.our-text{
+  font-family: 'Courier New', sans-serif, monospace;
+  font-weight: 400;
 }

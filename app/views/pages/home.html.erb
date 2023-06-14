@@ -45,11 +45,11 @@
 
     <%= form_tag search_path, method: :get, class: "mt-5" do %>
       <div class="row justify-content-center align-items-center">
-        <div class="col-lg-8 col-md-10 col-sm-12">
-          <div class="input-group">
-            <%= text_field_tag :query, params[:query], class: "form-control rounded-start me-2", placeholder: "Search by your city or postal code" %>
+        <div class="col-lg-10 col-md-10 col-sm-12">
+          <div class="input-group our-text">
+            <%= text_field_tag :query, params[:query], class: "form-control rounded-start me-2", placeholder: "Search by your city or post-code" %>
             <%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball", "Squash"], @category), prompt: "Select a category", class: "form-select rounded-end me-2" %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
+            <%= submit_tag "Search", class: "rounded search-button bg-success bg-gradient text-white" %>
           </div>
         </div>
       </div>
