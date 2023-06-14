@@ -28,6 +28,7 @@
               <div>
                 <p class="w-100 bg-info bg-gradient text-dark text-center borders rounded"><strong><%= booking.status.capitalize %></strong></p>
                 <%= link_to "Cancel my Booking", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel?' }, class:"d-block btn btn-secondary btn-sm" %>
+                <%= link_to "Visit venue", venue_path(booking.venue), class:"d-block btn btn-secondary btn-sm mt-2" %>
               </div>
             </div>
           </div>
@@ -47,6 +48,7 @@
                 <div>
                   <p class="w-100 bg-success bg-gradient text-dark text-center borders rounded"><strong><%= booking.status.capitalize %></strong></p>
                   <%= link_to "Cancel my Booking", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel?' }, class:"d-block btn btn-secondary btn-sm" %>
+                  <%= link_to "Visit venue", venue_path(booking.venue), class:"d-block btn btn-secondary btn-sm mt-2" %>
                     <button type="button" class="w-100 mt-2 btn d-flex justify-content-center", style="color:white;background-color:#9cbfdd;" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit review</button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
@@ -60,7 +62,7 @@
                               <%= f.hidden_field :booking_id, { value: booking.id } %>
                               <%= f.input :title %>
                               <%= f.input :comment %>
-                              <%= f.input :rating %>
+                              <%= f.input :rating, collection: 1..5 %>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -89,6 +91,7 @@
               <div>
                 <p class="w-100 bg-danger bg-gradient text-dark text-center borders rounded"><strong><%= booking.status.capitalize %></strong></p>
                 <%= link_to "Cancel my Booking", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to cancel?' }, class:"d-block btn btn-secondary btn-sm" %>
+                <%= link_to "Visit venue", venue_path(booking.venue), class:"d-block btn btn-secondary btn-sm mt-2" %>
               </div>
             </div>
           </div>
@@ -133,10 +136,10 @@
             </div>
           <% end %>
         </div>
-      </div>
+        </div>
       </div>
       <div class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="profile-tab">
-      <h3 class="bg-secondary bg-gradient text-white text-center">Pending requests</h3>
+        <h3 class="bg-secondary bg-gradient text-white text-center">Pending requests</h3>
         <div class="card mb-3 p-3 bg-light shadow rounded-3">
           <% current_user.venues.each do |venue| %>
             <% venue.bookings.each do |booking| %>
@@ -155,7 +158,7 @@
         </div>
       </div>
       <div class="tab-pane fade" id="confirmed" role="tabpanel" aria-labelledby="contact-tab">
-      <h3 class="bg-secondary bg-gradient text-white text-center">Confirmed requests</h3>
+        <h3 class="bg-secondary bg-gradient text-white text-center">Confirmed requests</h3>
         <div class="card mb-3 p-3 bg-light shadow rounded-3">
           <% current_user.venues.each do |venue| %>
             <% venue.bookings.each do |booking| %>
@@ -166,6 +169,40 @@
               <% end %>
             <% end %>
           <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="home-tab">
+        <%= render "shared/user", user: @user %>
+      </div>
+    </div>
+  <% end %>
+
+    <% if current_user.is_admin? %>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#clubs" type="button" role="tab" aria-controls="clubs" aria-selected="true">Clubs</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="clubs" role="tabpanel" aria-labelledby="home-tab">
+        <div class="row justify-content-center">
+        <h3 class="bg-secondary bg-gradient text-white text-center">All clubs</h3>
+        <div class="row shadow bg-light d-flex justify-content-center">
+          <% @clubs.each do |club| %>
+            <div class="card club-card shadow p-3 mb-4 bg-light rounded-3 text-center m-3" style="width: 15rem; height:15rem;">
+              <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="card-img-top shadow border-1 rounded-3 mt-1" alt="Club Image">
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                  <p class="card-title"><%= club.name %></p>
+                </div>
+                <%= link_to "", club, class:"stretched-link" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
         </div>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="home-tab">

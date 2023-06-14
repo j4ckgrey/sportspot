@@ -81,7 +81,6 @@
               <a href="<%= search_path( query: "", category: 'MartialArts') %>" class="stretched-link"></a>
             </div>
           </div>
-
           <div class="col-md-3">
             <div class="card club-card shadow h-75">
               <img src="<%= asset_path('bouldering.jpg') %>" class="card-img-top" alt="Bouldering" style="height: 200px; object-fit: cover;">
@@ -152,11 +151,7 @@
         <span class="visually-hidden">Next</span>
       </button>
   </div>
-</div>
-
-<h2 class="text-center mb-4 banner-text">Checkout these cities</h2>
-
-<div class="container">
+  <h2 class="text-center mb-4 banner-text">Checkout these cities</h2>
   <div class="row">
     <div class="col-md-6 col-lg-3">
       <div class="card club-card shadow">
@@ -195,21 +190,16 @@
       </div>
     </div>
   </div>
-</div>
-
-
-
-<div class="container">
   <div class="row my-5">
+    <h2 class="text-center mb-4 banner-text">Ever played here?</h2>
     <div class="col-lg-8">
-      <h2 class="text-center mb-4 banner-text">Ever played here?</h2>
       <div class="row">
         <% @clubs.first(4).each do |club| %>
           <div class="col-md-6 mb-4">
-            <div class="card">
-              <img src= 'turnhalle3.jpg' class="card-img-top" alt="image">
+            <div class="card club-card shadow">
+              <img src= "<%= image_path('turnhalle3.jpg') %>" class="card-img-top" alt="image">
               <div class="card-body">
-                <h5 class="card-title"><%= club.name %></h5>
+                <h4 class="card-title"><%= club.name %></h4>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
                 <%= link_to "", club_path(club), class: "stretched-link" %>
               </div>
@@ -218,7 +208,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 h-100">
       <%= render "shared/map" %>
     </div>
   </div>

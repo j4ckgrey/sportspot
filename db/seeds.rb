@@ -1,48 +1,84 @@
-clubs_names = ["Kampfsport Center Köln", "Kautz Sportcenter", "Boulderplanet", "Kletterfabrik Köln", "K11 | Bouldering in South City", "Stuntwerk Köln", "Kegelclub - Die Teddybären", "City-Bowling Köln", "WDR Volleyball", "SC Janus e. V.", "ESV Olympia Köln - Fußball", ]
-clubs_zip_codes = ["50823", "50939", "50825", "50825", "50678", "51063", "50676", "50674", "50676", "50674", "50739"]
-clubs_streets = ["Venloer Str. 182", "Rhöndorfer Str. 10-13", "Oskar-Jäger-Straße 143H", "Oskar-Jäger-Straße 173", "Kyllstraße 11", "Schanzenstraße 6-20", "Agrippastraße 6", "Moselstraße 44", "Am Pantaleonsberg 3", "Hohenstaufenring 42", "Lämmerstr."]
-clubs_phone_numbers = "123456789"
-clubs_emails = "something@address.de"
+require 'faker'
 
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus consequat velit, in tincidunt orci ornare at. Nunc elit mauris, luctus non dapibus feugiat, bibendum iaculis odio. Morbi orci ante, egestas a risus non, mattis bibendum nulla. Mauris et dolor quis nibh pulvinar pharetra in commodo nisi. Fusce vel arcu non odio bibendum fermentum at nec eros. Vivamus vitae feugiat mi. Nam id dolor ac dolor tristique dignissim. Morbi et congue quam. Morbi molestie vitae tortor sit amet suscipit."
+# Seed for users with 'owner' role
+10.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: 'password',
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    roles: ['owner']
+  )
+end
 
-user = User.create(email: "jack@jack.jack", password: "jackjack", first_name: "Jack", last_name: "Grey", zip_code: 42929, city: "Wermelskirchen", street: "Eich 34", phone_number: 123456789, roles: ['owner'])
-
-clubs_names.each_with_index do |clubname, index|
-  club = Club.new(name: clubname)
-  club.zip_code = clubs_zip_codes[index]
-  club.street = clubs_streets[index]
-  club.phone_number = clubs_phone_numbers
-  club.email = clubs_emails
-  club.city = "Cologne"
-  club.user = user
-  club.address = "#{club.street}, #{club.zip_code}, #{club.city}"
+# Seed for clubs
+owners = User.where(roles: ['owner'])
+23.times do
+  address = Faker::Address.full_address
+  club = Club.create!(
+    name: Faker::Company.name,
+    zip_code: '50667', # Zip code for Cologne
+    city: 'Cologne',
+    street: Faker::Address.street_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email,
+    user: owners.sample,
+    address: address
+  )
+  club.latitude = 50.9375 + rand(-0.05..0.05) # Latitude within Cologne
+  club.longitude = 6.9603 + rand(-0.05..0.05) # Longitude within Cologne
   club.save
 end
 
-clubs = Club.all
-
-Venue.create(name: "MartialArts", category: "MartialArts", description: description, price: 17.99, club: clubs[0])
-Venue.create(name: "Boulderplanet", category: "Bouldering", description: description, price: 15.99, club: clubs[2])
-Venue.create(name: "Kletterfabrik Köln", category: "Bouldering", description: description, price: 70.99, club: clubs[3])
-Venue.create(name: "K11 | Bouldering in South City", category: "Bouldering", description: description, price: 33.99, club: clubs[4])
-Venue.create(name: "Stuntwerk Köln", category: "Bouldering", description: description, price: 11.10, club: clubs[5])
-Venue.create(name: "Kegelclub - Die Teddybären", category: "Kegel", description: description, price: 40.50, club: clubs[6])
-Venue.create(name: "City-Bowling Köln", category: "Bowling", description: description, price: 22.99, club: clubs[7])
-Venue.create(name: "WDR Volleyball", category: "Volleyball", description: description, price: 21.99, club: clubs[8])
-
-scjenusvenues = %w[Swimming Football Volleyball Basketball]
-scjenusvenues.each do |venue|
-  venue_name = Venue.new(name: venue, category: venue, description: description)
-  venue_name.club = clubs[9]
-  venue_name.save
+# Seed for users with 'user' role
+10.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: 'password',
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    roles: ['user']
+  )
 end
 
-Venue.create(name: "ESV Olympia Köln - Fußball", category: "Football", description: description, club: clubs[10])
+# Seed for users with 'admin' role
+3.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: 'password',
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    roles: ['admin']
+  )
+end
 
-kautz_venues = %w[Squash Swimming Tennis TableTennis Soccer MartialArts]
-kautz_venues.each do |venue|
-  venue_name = Venue.new(name: venue, category: venue, description: description)
-  venue_name.club = clubs[1]
-  venue_name.save
+# Seed for venues, bookings, and reviews
+clubs = Club.all
+users = User.where(roles: ['user'])
+categories = ['Football', 'Basketball', 'Tennis', 'Badminton', 'Swimming']
+
+clubs.each do |club|
+  5.times do
+    venue = club.venues.create!(
+      name: Faker::Company.name,
+      category: categories.sample,
+      description: Faker::Lorem.paragraph,
+      price: Faker::Number.decimal(l_digits: 2)
+    )
+
+    5.times do
+      booking = venue.bookings.create!(
+        date: Faker::Date.between(from: 1.year.ago, to: 1.year.from_now),
+        time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
+        user: users.sample
+      )
+
+      Review.create!(
+        title: Faker::Lorem.sentence,
+        comment: Faker::Lorem.paragraph,
+        rating: Faker::Number.between(from: 1, to: 5),
+        booking: booking
+      )
+    end
+  end
 end
