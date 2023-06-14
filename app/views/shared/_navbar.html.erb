@@ -2,12 +2,18 @@
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand fa-solid fa-volleyball btn-hover" do %>
     <% end %>
-    <div class="d-flex justify-content-center align-items-center mt-3 h-100">
-      <%= form_tag(search_path, method: :get) do %>
-        <%= text_field_tag :query, params[:query], placeholder: "Your post code", class: "rounded search-input" %>
-        <%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball"]), include_blank: 'Select Category', class: "rounded search-select" %>
-        <%= submit_tag "Search", class: "rounded search-button bg-success bg-gradient text-dark" %>
-      <% end %>
+    <div class="d-flex ">
+ <%= form_tag search_path, method: :get do %>
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-12 col-md-12 col-sm-16">
+          <div class="input-group our-text">
+            <%= text_field_tag :query, params[:query], class: "form-control rounded-start me-2", placeholder: "city or post-code" %>
+            <%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball", "Squash"], @category), prompt: "Select a category", class: "form-select rounded-end me-2" %>
+            <%= submit_tag "Search", class: "rounded search-button bg-success bg-gradient text-white" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
