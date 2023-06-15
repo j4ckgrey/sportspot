@@ -4,7 +4,7 @@
       <% if @results.any? %>
         <div class="container mx-auto">
           <% @results.each do |result| %>
-            <%# <% if result.club.status == "true" %> %>
+            <% if result.club.status == "true" %>
               <div class="card mb-5 shadow rounded-3 club-card" style="max-width: 1200px;">
                 <div class="row g-0 border">
                   <div class="col-md-4">
@@ -27,7 +27,7 @@
                   </div>
                 </div>
               </div>
-            <%# <% end %> %>
+            <% end %>
           <% end %>
         </div>
       <% else %>
