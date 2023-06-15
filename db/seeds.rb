@@ -78,44 +78,44 @@ clubs_names.each_with_index do |clubname, index|
 end
 clubs = Club.all
 venue1= Venue.new(name: "MartialArts", category: "MartialArts", description: description.sample, price: 17.99, club: clubs[0])
-venue1.photos.attach(io: martialarts, filename: "anything.jpeg", content_type: "image/jpeg")
+
 vennu1.save
 venue2 = Venue.create(name: "Boulderplanet", category: "Bouldering", description: description.sample, price: 15.99, club: clubs[2])
-venue2.photos.attach(io: bouldering2, filename: "anything.jpeg", content_type: "image/jpeg")
+
 vennu2.save
 venue3 = Venue.create(name: "Kletterfabrik Köln", category: "Bouldering", description: description.sample, price: 70.99, club: clubs[3])
-venue3.photos.attach(io: bouldering2, filename: "anything.jpeg", content_type: "image/jpeg")
+
 vennu3.save
 venue4 = Venue.create(name: "K11 | Bouldering in South City", category: "Bouldering", description: description.sample, price: 33.99, club: clubs[4])
-venue4.photos.attach(io: bouldering2, filename: "anything.jpeg", content_type: "image/jpeg")
+
 vennu4.save
 venue5 = Venue.create(name: "Stuntwerk Köln", category: "Bouldering", description: description.sample, price: 11.10, club: clubs[5])
-venue5.photos.attach(io: martialarts, filename: "anything.jpeg", content_type: "image/jpeg")
+
 vennu5.save
 venue6 = Venue.create(name: "Kegelclub - Die Teddybären", category: "Kegel", description: description.sample, price: 40.50, club: clubs[6])
-venue6.photos.attach(io: bowling, filename: "anything.jpeg", content_type: "image/jpeg")
+
 vennu6.save
 venue7 = Venue.create(name: "City-Bowling Köln", category: "Bowling", description: description.sample, price: 22.99, club: clubs[7])
-venue7.photos.attach(io: bowling, filename: "anything.jpeg", content_type: "image/jpeg")
+
 vennu7.save
 venue8 = Venue.create(name: "WDR Volleyball", category: "Volleyball", description: description.sample, price: 21.99, club: clubs[8])
-venue8.photos.attach(io: volleyball1, filename: "anything.jpeg", content_type: "image/jpeg")
+
 vennu8.save
 
 scjenusvenues = %w[Swimming Football Volleyball Basketball]
 scjenusvenues.each do |venue|
   venue_name = Venue.new(name: venue, category: venue, description: description.sample)
-  venue_name.photos.attach(io: photos.sample, filename: "anything.jpeg", content_type: "image/jpeg")
+
   venue_name.club = clubs[9]
   venue_name.save
 end
 venue9 = Venue.create(name: "ESV Olympia Köln - Fußball", category: "Football", description: description.sample, club: clubs[10])
-venue9.photos.attach(io: volleyball1, filename: "anything.jpeg", content_type: "image/jpeg")
+
 
 kautz_venues = %w[Squash Swimming Tennis TableTennis Soccer MartialArts]
 kautz_venues.each do |venue|
   venue_name = Venue.new(name: venue, category: venue, description: description.sample)
-  venue_name.photos.attach(io: photos.sample, filename: "anything.jpeg", content_type: "image/jpeg")
+
   venue_name.club = clubs[1]
   venue_name.save
 end
