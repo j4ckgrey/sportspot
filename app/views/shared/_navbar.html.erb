@@ -8,8 +8,8 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-12 col-md-12 col-sm-16">
           <div class="input-group our-text">
-            <%= text_field_tag :query, params[:query], class: "form-control rounded-start me-2", placeholder: "city or post-code" %>
-            <%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball", "Squash", "Others"], @category), prompt: "Select a category", class: "form-select rounded-end me-2" %>
+            <%= text_field_tag :query, params[:query], class: "search-bar form-control rounded-start me-2", placeholder: "city or post-code" %>
+            <%= select_tag :category, options_for_select(['All', "Football", "MartialArts", "Bouldering", "Kegel", "Bowling", "Volleyball", "Squash", "Others"], @category), prompt: "Select a category", class: "search-bar form-select rounded-end me-2" %>
             <%= submit_tag "Search", class: "rounded search-button bg-success bg-gradient text-white" %>
           </div>
         </div>

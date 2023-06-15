@@ -50,9 +50,10 @@ html, body {
 
 .search-button {
   padding: 8px 16px;
-  background-color: #28a745;
+  background-color: #3fa357 !important;
   color: #fff;
   border: none;
+  font-family: Arial, Helvetica, sans-serif ;
   cursor: pointer;
 }
 
@@ -136,4 +137,10 @@ html, body {
 .our-text{
   font-family: 'Courier New', sans-serif, monospace;
   font-weight: 400;
+}
+
+.search-bar{
+  font-family: Arial, Helvetica, sans-serif, monospace !important;
+  // font-weight: bold !important;
+  color: rgb(0, 0, 0) !important;
 }
