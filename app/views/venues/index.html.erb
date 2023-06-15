@@ -7,7 +7,7 @@
           <% if venue.photos.empty? %>
             <img src="https://www.axicorp.de/fileadmin/_processed_/6/b/csm_s-motive_AdobeStock_223415515_e9a05aadfa.jpeg" class="img-thumbnail d-block w-100" alt="..." style="height:1000;width:400;crop::fill;">
           <% else %>
-            <%= cl_image_tag venue.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start", style:"max-height:250px"%>
+            <%= cl_image_tag venue.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start", style:"height:230px; object-fit: cover;"%>
           <% end %>
         </div>
         <div class="card-body d-flex flex-column justify-content-between">
