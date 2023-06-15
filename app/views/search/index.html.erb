@@ -4,28 +4,30 @@
       <% if @results.any? %>
         <div class="container mx-auto">
           <% @results.each do |result| %>
-            <div class="card mb-5 shadow rounded-3 club-card" style="max-width: 1200px;">
-              <div class="row g-0 border">
-                <div class="col-md-4">
-                  <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                      <h1 class="card-title"><%= result.name %></h1>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <div class="venue-buttons">
-                        <% result.club.venues.each do |venue| %>
-                          <%= button_to venue.name, venue_path(venue), method: :get, class: "btn btn-secondary venue-button" %>
-                        <% end %>
+            <%# <% if result.club.status == "true" %> %>
+              <div class="card mb-5 shadow rounded-3 club-card" style="max-width: 1200px;">
+                <div class="row g-0 border">
+                  <div class="col-md-4">
+                    <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                      <div>
+                        <h3 class="card-title"><strong><%= result.name %></strong></h3>
+                        <h5 class="bi bi-bank"><%= result.club.name %><h5>
+                        <hr>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="venue-buttons">
+                            <%= button_to result.category, venue_path(result), method: :get, class: "btn btn-secondary venue-button" %>
+                        </div>
+                        <%= link_to "", venue_path(result.id), class: "stretched-link" %>
                       </div>
-                      <%= link_to "", venue_path(result.id), class: "stretched-link" %>
+                      <p class="card-text"><%= result.club.address %></p>
                     </div>
-                    <p class="card-text"><%= result.club.address %></p>
                   </div>
                 </div>
               </div>
-            </div>
+            <%# <% end %> %>
           <% end %>
         </div>
       <% else %>

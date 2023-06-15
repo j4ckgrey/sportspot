@@ -141,34 +141,41 @@
       <div class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="profile-tab">
         <h3 class="bg-secondary bg-gradient text-white text-center">Pending requests</h3>
         <div class="card mb-3 p-3 bg-light shadow rounded-3">
-          <% current_user.venues.each do |venue| %>
-            <% venue.bookings.each do |booking| %>
-              <% if booking.pending? %>
-                <div>
-                  <h3><strong><%= booking.user.first_name %></strong> requested booking for <strong><%= booking.venue.name %></strong> in <%= booking.venue.club.name %></h3>
-                  <h6>On: <%= booking.date %> <%= booking.time.strftime("at %l:%M %p") %></h6>
-                </div>
-                <div>
-                  <%= link_to "Confirm", booking_path(booking, booking: {status: :confirmed}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to confirm?' }, class:"btn btn-primary btn-sm" %>
-                  <%= link_to "Decline", booking_path(booking, booking: {status: :declined}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to decline?' }, class:"btn btn-secondary btn-sm" %>
-                </div>
-              <% end %>
+            <%# <%if current_user.venues.bookings.present?%> 
+            <% current_user.venues.each do |venue| %>
+                          <% venue.bookings.each do |booking| %>
+                            <% if booking.pending? %>
+                              <div>
+                                <h3><strong><%= booking.user.first_name %></strong> requested booking for <strong><%= booking.venue.name %></strong> in <%= booking.venue.club.name %></h3>
+                                <h6>On: <%= booking.date %> <%= booking.time.strftime("at %l:%M %p") %></h6>
+                              </div>
+                              <div>
+                                <%= link_to "Confirm", booking_path(booking, booking: {status: :confirmed}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to confirm?' }, class:"btn btn-primary btn-sm" %>
+                                <%= link_to "Decline", booking_path(booking, booking: {status: :declined}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to decline?' }, class:"btn btn-secondary btn-sm" %>
+                              </div>
+                              <% end %>
+                          <% end %>
+              <%# <%else%>
+                <%# <h5>Sorry, you do not have any pending requests.</h5> %>
+              <%# <% end %>
             <% end %>
-          <% end %>
         </div>
       </div>
       <div class="tab-pane fade" id="confirmed" role="tabpanel" aria-labelledby="contact-tab">
         <h3 class="bg-secondary bg-gradient text-white text-center">Confirmed requests</h3>
-        <div class="card mb-3 p-3 bg-light shadow rounded-3">
-          <% current_user.venues.each do |venue| %>
-            <% venue.bookings.each do |booking| %>
-              <% if booking.confirmed? %>
-                <div>
-                  <h6><strong><%= booking.user.first_name %></strong>'s booking for <strong><%= venue.name %></strong> on <%= booking.date %> at <%= booking.time.strftime("at %l:%M %p") %> has been confirmed</h6>
-                </div>
+          <div class="card mb-3 p-3 bg-light shadow rounded-3">
+            <% current_user.venues.each do |venue| %>
+              <% venue.bookings.each do |booking| %>
+                <%if booking.confirmed? %>
+                      <div>
+                        <h6><strong><%= booking.user.first_name %></strong>'s booking for <strong><%= venue.name %></strong> on <%= booking.date %> at <%= booking.time.strftime("at %l:%M %p") %> has been <mark style="background: #FFFFFF!important" class="text-success">confirmed</mark>.</h6>
+                      </div>
+                <%else%>
+                      <h6><strong><%= booking.user.first_name %></strong>'s booking for <strong><%= venue.name %></strong> on <%= booking.date %> at <%= booking.time.strftime("at %l:%M %p") %> has been <mark style="background: #FFFFFF!important" class="text-danger">declined</mark>.</h6>
+                <%end%>
+               <hr>
               <% end %>
             <% end %>
-          <% end %>
         </div>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="home-tab">
