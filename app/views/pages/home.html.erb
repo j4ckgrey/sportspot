@@ -198,7 +198,11 @@
           <% if club.status == true %>
             <div class="col-md-6 mb-4">
               <div class="card club-card shadow">
-                <img src= "<%= image_path('turnhalle3.jpg') %>" class="card-img-top" alt="image">
+                <% if !club.photos.empty? %>
+                  <%= cl_image_tag club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
+                <% else %>
+                  <img src= "<%= image_path('turnhalle3.jpg') %>" class="card-img-top" alt="image">
+                <% end %>
                 <div class="card-body">
                   <h4 class="card-title"><%= club.name %></h4>
                   <p class="card-text"><%= club.description.truncate(80) %></p>
