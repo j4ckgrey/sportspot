@@ -115,7 +115,7 @@ venue9.photos.attach(io: volleyball1, filename: "anything.jpeg", content_type: "
 kautz_venues = %w[Squash Swimming Tennis TableTennis Soccer MartialArts]
 kautz_venues.each do |venue|
   venue_name = Venue.new(name: venue, category: venue, description: description.sample)
-  venue_name.photos.attach(io: photos.rand, filename: "anything.jpeg", content_type: "image/jpeg")
+  venue_name.photos.attach(io: photos.sample, filename: "anything.jpeg", content_type: "image/jpeg")
   venue_name.club = clubs[1]
   venue_name.save
 end
