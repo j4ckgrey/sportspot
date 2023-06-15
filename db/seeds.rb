@@ -54,9 +54,6 @@ description = [
   For our younger athletes, we have a comprehensive youth development program that introduces them to various sports, fostering a love for an active lifestyle and instilling values of discipline and resilience. Our adult leagues and recreational programs offer opportunities for friendly competition and social engagement, ensuring a fulfilling experience for athletes of all ages.
   Join the Apex Athletics family today and unlock your full athletic potential. Experience the thrill of pushing boundaries, making lifelong friends, and creating unforgettable memories. Get ready to reach new heights with us at Apex Athletics!"
 ]
-article = Article.new(title: "NES", body: "A great console")
-article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-article.save
 
 clubs_names = ["Kampfsport Center Köln", "Kautz Sportcenter", "Boulderplanet", "Kletterfabrik Köln", "K11 | Bouldering in South City", "Stuntwerk Köln", "Kegelclub - Die Teddybären", "City-Bowling Köln", "WDR Volleyball", "SC Janus e. V.", "ESV Olympia Köln - Fußball", ]
 clubs_zip_codes = ["50823", "50939", "50825", "50825", "50678", "51063", "50676", "50674", "50676", "50674", "50739"]
