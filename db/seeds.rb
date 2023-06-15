@@ -60,7 +60,6 @@ clubs_zip_codes = ["50823", "50939", "50825", "50825", "50678", "51063", "50676"
 clubs_streets = ["Venloer Str. 182", "Rhöndorfer Str. 10-13", "Oskar-Jäger-Straße 143H", "Oskar-Jäger-Straße 173", "Kyllstraße 11", "Schanzenstraße 6-20", "Agrippastraße 6", "Moselstraße 44", "Am Pantaleonsberg 3", "Hohenstaufenring 42", "Lämmerstr."]
 clubs_phone_numbers = "123456789"
 clubs_emails = "something@address.de"
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus consequat velit, in tincidunt orci ornare at. Nunc elit mauris, luctus non dapibus feugiat, bibendum iaculis odio. Morbi orci ante, egestas a risus non, mattis bibendum nulla. Mauris et dolor quis nibh pulvinar pharetra in commodo nisi. Fusce vel arcu non odio bibendum fermentum at nec eros. Vivamus vitae feugiat mi. Nam id dolor ac dolor tristique dignissim. Morbi et congue quam. Morbi molestie vitae tortor sit amet suscipit."
 user = User.create(email: "jack@jack.jack", password: "jackjack", first_name: "Jack", last_name: "Grey", zip_code: 42929, city: "Wermelskirchen", street: "Eich 34", phone_number: 123456789, roles: ['owner'])
 clubs_names.each_with_index do |clubname, index|
   club = Club.new(name: clubname)
@@ -106,7 +105,7 @@ vennu8.save
 scjenusvenues = %w[Swimming Football Volleyball Basketball]
 scjenusvenues.each do |venue|
   venue_name = Venue.new(name: venue, category: venue, description: description.sample)
-  venue_name.photos.attach(io: photos.rand, filename: "anything.jpeg", content_type: "image/jpeg")
+  venue_name.photos.attach(io: photos.sample, filename: "anything.jpeg", content_type: "image/jpeg")
   venue_name.club = clubs[9]
   venue_name.save
 end
