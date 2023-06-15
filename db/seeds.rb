@@ -1,5 +1,7 @@
 require "open-uri"
-
+Chatroom.delete_all
+Review.delete_all
+Booking.delete_all
 User.delete_all
 Club.delete_all
 Venue.delete_all
