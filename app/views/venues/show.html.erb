@@ -31,11 +31,12 @@
                 <div class="modal-body">
                   <%= simple_form_for [@venue, @booking] do |f| %>
                     <%= f.input :date, as: :date, html5: true %>
-                    <%= f.input :time, as: :time, html5: true %>
+                    <%= f.input :time, as: :time, :minute_step => 30 %>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <%= f.submit 'Request Booking', class: "btn btn-primary" %>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <%= f.submit 'Request Booking', class: "btn btn-primary" %>
+                  <% end %>
                 </div>
                   <% end %>
               </div>
@@ -56,7 +57,7 @@
             <i class="fa-solid fa-star" style="color: #fecb3e;"></i>
           <% end %>
         </div>
-        <p><%= review.comment %></p>
+        <p class="border-bottom p-2"><%= review.comment %></p>
         <% end %>
       </div>
     </div>

@@ -1,5 +1,4 @@
 require 'faker'
-
 # Seed for users with 'owner' role
 10.times do
   User.create!(
@@ -10,7 +9,6 @@ require 'faker'
     roles: ['owner']
   )
 end
-
 # Seed for clubs
 owners = User.where(roles: ['owner'])
 23.times do
@@ -29,7 +27,6 @@ owners = User.where(roles: ['owner'])
   club.longitude = 6.9603 + rand(-0.05..0.05) # Longitude within Cologne
   club.save
 end
-
 # Seed for users with 'user' role
 10.times do
   User.create!(
@@ -40,7 +37,6 @@ end
     roles: ['user']
   )
 end
-
 # Seed for users with 'admin' role
 3.times do
   User.create!(
@@ -51,12 +47,10 @@ end
     roles: ['admin']
   )
 end
-
 # Seed for venues, bookings, and reviews
 clubs = Club.all
 users = User.where(roles: ['user'])
 categories = ['Football', 'Basketball', 'Tennis', 'Badminton', 'Swimming']
-
 clubs.each do |club|
   5.times do
     venue = club.venues.create!(
@@ -65,14 +59,12 @@ clubs.each do |club|
       description: Faker::Lorem.paragraph,
       price: Faker::Number.decimal(l_digits: 2)
     )
-
     5.times do
       booking = venue.bookings.create!(
         date: Faker::Date.between(from: 1.year.ago, to: 1.year.from_now),
         time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
         user: users.sample
       )
-
       Review.create!(
         title: Faker::Lorem.sentence,
         comment: Faker::Lorem.paragraph,

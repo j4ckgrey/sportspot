@@ -1,6 +1,6 @@
 <%= simple_form_for [club, venue] do |f| %>
   <%= f.input :name %>
-  <%= f.input :category %>
+  <%= f.input :category, :collection => %w[All Football MartialArts Bouldering Kegel Bowling Volleyball Squash Others] %>
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>

@@ -11,7 +11,11 @@
           <div class="card shadow club-card bg-light m-4" style="max-width: 540px; height: 130px;">
             <div class="row">
               <div class="col-4">
-                <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="h-100 img-fluid rounded-start" alt="...">
+                <% if !venue.photos.empty? %>
+                  <%= cl_image_tag club.photos.first.key, crop: :fill, class:"d-flex justify-content-center img-fluid rounded-start d-block img-thumbnail img-fluid rounded-start"%>
+                <% else %>
+                  <%= image_tag "venue_default.jpeg", class:"d-flex justify-content-center img-fluid rounded-start d-block img-thumbnail img-fluid rounded-start"%>
+                <% end %>
               </div>
               <div class="col-8">
                 <div class="card-body">

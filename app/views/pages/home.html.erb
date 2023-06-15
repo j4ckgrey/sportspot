@@ -12,9 +12,9 @@
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user.photo.present? %>
-              <%= cl_image_tag current_user.photo.key, class:"avatar", alt: "dropdown menu"%>
+              <%= cl_image_tag current_user.photo.key, class:"avatar", alt: "dropdown_menu"%>
             <% else %>
-              <%= image_tag "acc_default.png", class: "avatar", alt: "dropdown menu" %>
+              <%= image_tag "acc_default.png", class: "avatar", alt: "dropdown_menu" %>
             <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end bg-white" aria-labelledby="navbarDropdown">
@@ -195,16 +195,18 @@
     <div class="col-lg-8">
       <div class="row">
         <% @clubs.first(4).each do |club| %>
-          <div class="col-md-6 mb-4">
-            <div class="card club-card shadow">
-              <img src= "<%= image_path('turnhalle3.jpg') %>" class="card-img-top" alt="image">
-              <div class="card-body">
-                <h4 class="card-title"><%= club.name %></h4>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                <%= link_to "", club_path(club), class: "stretched-link" %>
+          <% if club.status == true %>
+            <div class="col-md-6 mb-4">
+              <div class="card club-card shadow">
+                <img src= "<%= image_path('turnhalle3.jpg') %>" class="card-img-top" alt="image">
+                <div class="card-body">
+                  <h4 class="card-title"><%= club.name %></h4>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <%= link_to "", club_path(club), class: "stretched-link" %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
