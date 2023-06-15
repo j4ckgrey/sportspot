@@ -6,7 +6,7 @@
         <div class="row g-0 border">
           <div class="col-md-4">
             <% if !club.photos.empty? %>
-              <%= club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
+              <%= cl_image_tag club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
             <% else %>
               <%= image_tag "venue_default.jpeg", class:"d-block img-thumbnail img-fluid rounded-start"%>
             <% end %>
