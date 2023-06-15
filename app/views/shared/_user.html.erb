@@ -1,6 +1,11 @@
 <div class="container">
   <div class="col">
     <div class="card">
+    <div class="d-flex flex-row-reverse bg-black">
+      <% if current_user.is_owner? || current_user.is_admin? %>
+        <%= link_to "Submit a new Club", new_club_path(@club), class:"btn btn-secondary me-3 mt-3", style:"z-index: 1;" %>
+      <% end %>
+      </div>
       <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
         <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
           <% if current_user.photo.present? %>
@@ -8,7 +13,7 @@
           <% else %>
             <%= image_tag "acc_default.png", class:"img-fluid img-thumbnail mt-4 mb-2", style:"width: 150px; z-index: 1" %>
           <% end %>
-          <%= link_to "Edit profile", edit_user_registration_path(@user), class:"btn btn-success", style:"z-index: 1;" %>
+            <%= link_to "Edit profile", edit_user_registration_path(@user), class:"btn btn-success", style:"z-index: 1;" %>
         </div>
         <div class="ms-3" style="margin-top: 130px;">
           <h5><%= current_user.first_name %> <%= current_user.last_name %></h5>

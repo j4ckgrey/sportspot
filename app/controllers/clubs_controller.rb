@@ -51,10 +51,17 @@ class ClubsController < ApplicationController
     end
   end
 
+  def destroy
+    @club = Club.find(params[:id])
+    @club.destroy
+    authorize @club
+    redirect_to dashboard_path, status: :see_other
+  end
+
   private
 
   def club_params
-    params.require(:club).permit(:name, :zip_code, :city, :street, :phone_number, :email, :user_id, photos: [])
+    params.require(:club).permit(:name, :zip_code, :city, :street, :phone_number, :email, :user_id, :status, photos: [])
   end
 
   def set_club
