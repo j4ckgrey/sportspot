@@ -133,15 +133,17 @@
           <h3 class="text-center my-5 strong bg-gradient border-bottom border-3 border-dark">Owned clubs</h3>
           <div class="row d-flex justify-content-center">
             <% @owns.each do |club| %>
-              <div class="card club-card shadow p-3 mb-4 bg-light rounded-3 text-center m-3" style="width: 15rem; height:15rem;">
-                <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="card-img-top shadow border-1 rounded-3 mt-1" alt="Club Image">
-                <div class="card-body d-flex flex-column justify-content-between">
-                  <div>
-                    <p class="card-title"><%= club.name %></p>
+              <% if club.status == true %>
+                <div class="card club-card shadow p-3 mb-4 bg-light rounded-3 text-center m-3" style="width: 15rem; height:15rem;">
+                  <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="card-img-top shadow border-1 rounded-3 mt-1" alt="Club Image">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                      <p class="card-title"><%= club.name %></p>
+                    </div>
+                    <%= link_to "", club, class:"stretched-link" %>
                   </div>
-                  <%= link_to "", club, class:"stretched-link" %>
                 </div>
-              </div>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -153,10 +155,10 @@
             <% venue.bookings.each do |booking| %>
               <% if booking.pending? %>
                 <div>
-                  <h3><strong><%= booking.user.first_name %></strong> requested booking for <strong><%= booking.venue.name %></strong> in <%= booking.venue.club.name %></h3>
-                  <h6>On: <%= booking.date %> <%= booking.time.strftime("at %l:%M %p") %></h6>
+                  <h5><strong><%= booking.user.first_name %></strong> requested booking for <strong><%= booking.venue.name %></strong> in <%= booking.venue.club.name %></h5>
+                  <p><small>On: <%= booking.date %> <%= booking.time.strftime("at %l:%M %p") %></small></p>
                 </div>
-                <div>
+                <div class="pb-3 mb-3 border-bottom">
                   <%= link_to "Confirm", booking_path(booking, booking: {status: :confirmed}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to confirm?' }, class:"btn btn-primary btn-sm" %>
                   <%= link_to "Decline", booking_path(booking, booking: {status: :declined}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to decline?' }, class:"btn btn-secondary btn-sm" %>
                 </div>
@@ -184,11 +186,13 @@
       </div>
     </div>
   <% end %>
-
   <% if current_user.is_admin? %>
     <ul class="nav nav-tabs rounded border-bottom" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#clubs" type="button" role="tab" aria-controls="clubs" aria-selected="true">Clubs</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#requests" type="button" role="tab" aria-controls="requests" aria-selected="false">Club Requests</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
@@ -200,17 +204,35 @@
           <h3 class="bg-secondary bg-gradient text-white text-center">All clubs</h3>
           <div class="row shadow bg-light d-flex justify-content-center">
             <% @clubs.each do |club| %>
-              <div class="card club-card shadow p-3 mb-4 bg-light rounded-3 text-center m-3" style="width: 15rem; height:15rem;">
-                <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="card-img-top shadow border-1 rounded-3 mt-1" alt="Club Image">
-                <div class="card-body d-flex flex-column justify-content-between">
-                  <div>
-                    <p class="card-title"><%= club.name %></p>
+              <% if club.status == true %>
+                <div class="card club-card shadow p-3 mb-4 bg-light rounded-3 text-center m-3" style="width: 15rem; height:15rem;">
+                  <img src="https://www.gardasee.de/sites/default/files/teaserimg/tennis_adobestock_285441870_0.jpeg" class="card-img-top shadow border-1 rounded-3 mt-1" alt="Club Image">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                      <p class="card-title"><%= club.name %></p>
+                    </div>
+                    <%= link_to "", club, class:"stretched-link" %>
                   </div>
-                  <%= link_to "", club, class:"stretched-link" %>
                 </div>
-              </div>
+              <% end %>
             <% end %>
           </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="profile-tab">
+        <h3 class="bg-secondary bg-gradient text-white text-center">Pending requests</h3>
+        <div class="card mb-3 p-3 bg-light shadow rounded-3">
+          <% @clubs.each do |club| %>
+            <% if club.status == false %>
+              <div>
+                <h5><strong><%= club.user.first_name %></strong> has requested to submit Club <strong><%= club.name %></strong> to the website.</h5>
+              </div>
+              <div class="pb-3 mb-3 border-bottom">
+                <%= link_to "Confirm", club_path(club, club: {status: :true}), data: { turbo_method: :patch, turbo_confirm: 'Are you sure you want to confirm?' }, class:"btn btn-primary btn-sm" %>
+                <%= link_to "Decline", club_path(club), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to decline?' }, class:"btn btn-danger btn-sm" %>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="home-tab">

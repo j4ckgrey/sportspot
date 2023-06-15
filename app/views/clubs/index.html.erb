@@ -1,28 +1,28 @@
 <div class="container justify-content-center mx-auto">
   <h1 class="text-center my-5 strong bg-gradient border-bottom border-3 border-dark"> Our Clubs </h1>
   <% @clubs.each do |club| %>
-    <div class="card club-card mb-5 shadow rounded-3" style="max-width: 1200px;">
-      <div class="row g-0 border">
-        <div class="col-md-4">
-
-          <% if !club.photos.empty? %>
-            <%= club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
-          <% else %>
-            <%= image_tag "venue_default.jpeg", class:"d-block img-thumbnail img-fluid rounded-start"%>
-          <% end %>
-
-        </div>
-        <div class="col-md-8">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <div>
-              <h1 class="card-title"><%= club.name %></h1>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <%= link_to "", club_path(club), class:"stretched-link"%>
+    <% if club.status == true %>
+      <div class="card club-card mb-5 shadow rounded-3" style="max-width: 1200px;">
+        <div class="row g-0 border">
+          <div class="col-md-4">
+            <% if !club.photos.empty? %>
+              <%= club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
+            <% else %>
+              <%= image_tag "venue_default.jpeg", class:"d-block img-thumbnail img-fluid rounded-start"%>
+            <% end %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <h1 class="card-title"><%= club.name %></h1>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <%= link_to "", club_path(club), class:"stretched-link"%>
+              </div>
+              <p class="card-text"><small class="text-muted"><%= club.address %></small></p>
             </div>
-            <p class="card-text"><small class="text-muted"><%= club.address %></small></p>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

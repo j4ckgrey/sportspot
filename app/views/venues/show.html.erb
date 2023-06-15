@@ -33,9 +33,10 @@
                     <%= f.input :date, as: :date, html5: true %>
                     <%= f.input :time, as: :time, html5: true %>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <%= f.submit 'Request Booking', class: "btn btn-primary" %>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <%= f.submit 'Request Booking', class: "btn btn-primary" %>
+                  <% end %>
                 </div>
                 <% end %>
               </div>
