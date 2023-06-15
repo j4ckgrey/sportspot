@@ -23,7 +23,6 @@ bouldering2 = URI.open("https://images.unsplash.com/photo-1536639070539-43ec572a
 
 photos = [basketball, tennis, basketball2, basketball3, bowling, martialarts, football1, football2, swimming, volleyball1, volleyball2]
 
-
 description = [
   "The sports club with many sports courts has everything you need to get fit and have fun. Dedicated courts for volleyball, basketball, martialarts, and bowling keep everyone entertained while they work on their game. With plenty of seating and vending machines nearby, this gym is the perfect place to work out or relax after a hard day's play.",
   "Looking for a sports club with many sports courts? Look no further than the Sports Arenas Club. Our location provides access to volleyball, basketball, martialarts, and bowling courts, making it the perfect place to get your exercise fix. Plus, we’re located next to a pub so you can relax after your workout and catch up on your favorite TV show.",
@@ -73,7 +72,7 @@ clubs_names.each_with_index do |clubname, index|
   club.status = true
   club.photos.attach(io: photos[index], filename: "anything.jpeg", content_type: "image/jpeg")
   club.address = "#{club.street}, #{club.zip_code}, #{club.city}"
-  club.description = description[index]
+  club.description = description.sample
   club.save
 end
 clubs = Club.all
@@ -110,7 +109,6 @@ scjenusvenues.each do |venue|
   venue_name.save
 end
 venue9 = Venue.create(name: "ESV Olympia Köln - Fußball", category: "Football", description: description.sample, club: clubs[10])
-
 
 kautz_venues = %w[Squash Swimming Tennis TableTennis Soccer MartialArts]
 kautz_venues.each do |venue|
