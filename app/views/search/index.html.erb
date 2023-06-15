@@ -16,7 +16,7 @@
                         <h3 class="card-title"><strong><%= result.name %></strong></h3>
                         <h5 class="bi bi-bank"><%= result.club.name %><h5>
                         <hr>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><% result.description.truncate(80) %></p>
                         <div class="venue-buttons">
                             <%= button_to result.category, venue_path(result), method: :get, class: "btn btn-secondary venue-button" %>
                         </div>
