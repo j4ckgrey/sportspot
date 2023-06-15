@@ -81,10 +81,10 @@ venue1= Venue.new(name: "MartialArts", category: "MartialArts", description: des
 venue1.photos.attach(io: martialarts, filename: "anything.jpeg", content_type: "image/jpeg")
 vennu1.save
 venue2 = Venue.create(name: "Boulderplanet", category: "Bouldering", description: description.sample, price: 15.99, club: clubs[2])
-venue2.photos.attach(io: bouldering, filename: "anything.jpeg", content_type: "image/jpeg")
+venue2.photos.attach(io: bouldering2, filename: "anything.jpeg", content_type: "image/jpeg")
 vennu2.save
 venue3 = Venue.create(name: "Kletterfabrik Köln", category: "Bouldering", description: description.sample, price: 70.99, club: clubs[3])
-venue3.photos.attach(io: bouldering, filename: "anything.jpeg", content_type: "image/jpeg")
+venue3.photos.attach(io: bouldering2, filename: "anything.jpeg", content_type: "image/jpeg")
 vennu3.save
 venue4 = Venue.create(name: "K11 | Bouldering in South City", category: "Bouldering", description: description.sample, price: 33.99, club: clubs[4])
 venue4.photos.attach(io: bouldering2, filename: "anything.jpeg", content_type: "image/jpeg")
