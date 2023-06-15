@@ -15,7 +15,7 @@ martialarts = URI.open("https://plus.unsplash.com/premium_photo-1667941272664-91
 football1 = URI.open("https://images.unsplash.com/photo-1536639070539-43ec572aca6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
 football2 = URI.open("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
 swimming = URI.open("https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
-#volleyball1 = URI.open("https://images.unsplash.com/photo-1567781830902-685fb3401f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+volleyball1 = URI.open("https://images.unsplash.com/photo-1567781830902-685fb3401f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
 volleyball2 = URI.open("https://images.unsplash.com/photo-1584692618238-72820dbd5c60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
 basketball2 = URI.open("https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2090&q=80")
 bouldering = URI.open("https://images.unsplash.com/photo-1564769662533-4f00a87b4056?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2144&q=80")
@@ -99,7 +99,7 @@ venue7 = Venue.create(name: "City-Bowling Köln", category: "Bowling", descripti
 venue7.photos.attach(io: bowling, filename: "anything.jpeg", content_type: "image/jpeg")
 vennu7.save
 venue8 = Venue.create(name: "WDR Volleyball", category: "Volleyball", description: description.sample, price: 21.99, club: clubs[8])
-venue8.photos.attach(io: volleyball, filename: "anything.jpeg", content_type: "image/jpeg")
+venue8.photos.attach(io: volleyball1, filename: "anything.jpeg", content_type: "image/jpeg")
 vennu8.save
 
 scjenusvenues = %w[Swimming Football Volleyball Basketball]
@@ -110,7 +110,7 @@ scjenusvenues.each do |venue|
   venue_name.save
 end
 venue9 = Venue.create(name: "ESV Olympia Köln - Fußball", category: "Football", description: description.sample, club: clubs[10])
-venue9.photos.attach(io: volleyball, filename: "anything.jpeg", content_type: "image/jpeg")
+venue9.photos.attach(io: volleyball1, filename: "anything.jpeg", content_type: "image/jpeg")
 
 kautz_venues = %w[Squash Swimming Tennis TableTennis Soccer MartialArts]
 kautz_venues.each do |venue|
