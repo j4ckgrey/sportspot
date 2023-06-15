@@ -8,7 +8,7 @@ clubs_streets = ["Venloer Str. 182", "Rhöndorfer Str. 10-13", "Oskar-Jäger-Str
 clubs_phone_numbers = "123456789"
 clubs_emails = "something@address.de"
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus consequat velit, in tincidunt orci ornare at. Nunc elit mauris, luctus non dapibus feugiat, bibendum iaculis odio. Morbi orci ante, egestas a risus non, mattis bibendum nulla. Mauris et dolor quis nibh pulvinar pharetra in commodo nisi. Fusce vel arcu non odio bibendum fermentum at nec eros. Vivamus vitae feugiat mi. Nam id dolor ac dolor tristique dignissim. Morbi et congue quam. Morbi molestie vitae tortor sit amet suscipit."
-user = User.create(email: "jack@jack.jack", password: "jackjack", first_name: "Jack", last_name: "Grey", zip_code: 42929, city: "Wermelskirchen", street: "Eich 34", phone_number: 123456789, roles: ['owner'], description: description)
+user = User.create(email: "jack@jack.jack", password: "jackjack", first_name: "Jack", last_name: "Grey", zip_code: 42929, city: "Wermelskirchen", street: "Eich 34", phone_number: 123456789, roles: ['owner'])
 clubs_names.each_with_index do |clubname, index|
   club = Club.new(name: clubname)
   club.zip_code = clubs_zip_codes[index]
@@ -16,7 +16,9 @@ clubs_names.each_with_index do |clubname, index|
   club.phone_number = clubs_phone_numbers
   club.email = clubs_emails
   club.city = "Cologne"
+  club.description = description
   club.user = user
+  club.status = true
   club.address = "#{club.street}, #{club.zip_code}, #{club.city}"
   club.save
 end
