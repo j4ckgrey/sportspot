@@ -5,7 +5,6 @@
       <% if venue.photos.present? %>
         <% venue.photos.first do |photo| %>
           <%= cl_image_tag photo.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
-        </div>
         <%end%>
       <% else %>
         <div class="carousel-item d-flex justify-content-center active">

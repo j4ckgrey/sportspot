@@ -23,6 +23,6 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.is_owner? || user.is_admin?
+    user.is_admin?
   end
 end

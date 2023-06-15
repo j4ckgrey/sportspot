@@ -18,6 +18,7 @@ class PagesController < ApplicationController
     @owns = Club.where(user_id: current_user.id)
     @review = Review.new
     @user = current_user
+    @club = Club.new
   end
 
   def confirmation
