@@ -63,8 +63,8 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="row">
-          <div class="col-md-3 ">
-            <div class="card club-card shadow h-75">
+          <div class="col-md-3">
+            <div class="card club-card h-75">
               <img src="<%= asset_path('football.jpg') %>" class="card-img-top" alt="Football" style="height: 200px; object-fit: cover;">
               <div class="card-body">
                 <h5 class="card-title"><strong>Football</strong></h5>
@@ -199,7 +199,7 @@
             <div class="col-md-6 mb-4">
               <div class="card club-card shadow">
                 <% if !club.photos.empty? %>
-                  <%= cl_image_tag club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
+                  <%= cl_image_tag club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start", style:"height: 200px; width: 400; object-fit: cover;" %>
                 <% else %>
                   <img src= "<%= image_path('turnhalle3.jpg') %>" class="card-img-top" alt="image">
                 <% end %>
