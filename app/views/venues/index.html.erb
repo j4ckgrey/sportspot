@@ -2,15 +2,10 @@
   <h1 class="text-center my-5 strong bg-gradient border-bottom border-3 border-dark">All venues</h1>
   <% @venues.each do |venue| %>
     <div class="card venue-card shadow p-3 mb-5 bg-white rounded-4 text-center m-3 club-card" style="width: 22rem; height:33rem;">
-      <% if venue.photos.present? %>
-        <% venue.photos.first do |photo| %>
-          <%= cl_image_tag photo.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
-        </div>
-        <%end%>
+      <% if !venue.photos.empty? %>
+        <%= venue.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
       <% else %>
-        <div class="carousel-item d-flex justify-content-center active">
-          <%= image_tag "venue_default.jpeg", class:"d-block img-thumbnail img-fluid rounded-start"%>
-        </div>
+        <%= image_tag "venue_default.jpeg", class:"d-block img-thumbnail img-fluid rounded-start"%>
       <% end %>
       <div class="card-body d-flex flex-column justify-content-between">
         <div>
