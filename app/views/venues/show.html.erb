@@ -6,10 +6,10 @@
   <div class="row">
     <h1 class="text-center"><%= @venue.name %></h1>
     <h4 class="text-center border-bottom pb-2">Your <%= @venue.category %> Arena</h4>
-    <div class="col-6 mx-3 ">
+    <div class="col-sm-6">
       <%= render "shared/carousel", venue: @venue %>
     </div>
-    <div class="col-5 p-4 d-flex flex-column justify-content-between">
+    <div class="col-sm-6 p-4 d-flex flex-column justify-content-between">
         <p><%= @venue.description %></p>
       <div class="d-flex justify-content-center">
         <% if current_user.is_owner? || current_user.is_admin? %>
