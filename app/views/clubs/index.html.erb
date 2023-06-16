@@ -6,9 +6,9 @@
         <div class="row g-0 border">
           <div class="col-md-4">
             <% if !club.photos.empty? %>
-              <%= cl_image_tag club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start"%>
+              <%= cl_image_tag club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start", style:"height:300px; width:400px;px object-fit: fill;" %>
             <% else %>
-              <img src="https://www.axicorp.de/fileadmin/_processed_/6/b/csm_s-motive_AdobeStock_223415515_e9a05aadfa.jpeg" class="img-thumbnail d-block w-100" alt="..." style="height:1000;width:400;crop::fill;">
+              <img src="https://www.axicorp.de/fileadmin/_processed_/6/b/csm_s-motive_AdobeStock_223415515_e9a05aadfa.jpeg" class="img-thumbnail d-block w-100" alt="..." style="height:300; width:400; crop: :fill;">
             <% end %>
           </div>
           <div class="col-md-8">

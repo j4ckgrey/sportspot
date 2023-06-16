@@ -18,7 +18,7 @@
             <a><%= link_to "delete venue",venue_path(@venue), class:"m-1 soft_blue btn", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %></a>
           </div>
         <% else %>
-          <button type="button" class="club-card btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Request new booking</button>
+          <button type="button" class="club-card btn search-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Request new booking</button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">

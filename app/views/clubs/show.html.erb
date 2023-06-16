@@ -17,7 +17,7 @@
       <% elsif current_user.is_user? %>
         <div class="btn-group w-100" role="group" aria-label="Basic example">
           <%= render "modal"%>
-          <%= link_to "Chat with Club", new_club_chatroom_path(@club), class:"m-1 club-card btn btn-success" %>
+          <%= link_to "Chat with Club", new_club_chatroom_path(@club), class:"m-1 club-card btn search-button" %>
         </div>
       <% end %>
     </div>

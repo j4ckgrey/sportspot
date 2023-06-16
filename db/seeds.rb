@@ -8,53 +8,71 @@ Club.delete_all
 User.delete_all
 
 basketball = URI.open("https://images.unsplash.com/photo-1519766304817-4f37bda74a26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
-tennis = URI.open("https://images.unsplash.com/photo-1580763850522-504d40a05c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+tennis1 = URI.open("https://images.unsplash.com/photo-1580763850522-504d40a05c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+tennis2 = URI.open("https://tigerturf.com/in/wp-content/uploads/2019/11/How-to-build-a-tennis-court-1440x1080.jpg")
 basketball3 = URI.open("https://images.unsplash.com/photo-1583514735599-2ec2d33beaf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80")
-bowling = URI.open("https://images.unsplash.com/photo-1545056453-f0359c3df6db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+bowling1 = URI.open("https://images.unsplash.com/photo-1545056453-f0359c3df6db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+bowling2 = URI.open("https://files.guidedanmark.org/files/451/273351_Skjern_Bowling_Center.jpg")
 martialarts = URI.open("https://plus.unsplash.com/premium_photo-1667941272664-9146446e1b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+martialarts2 = URI.open("https://i.pinimg.com/736x/41/ee/98/41ee98ff413e459e8b4eadb2ced7aa85--taekwondo-karate.jpg")
 football1 = URI.open("https://images.unsplash.com/photo-1536639070539-43ec572aca6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
 football2 = URI.open("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
-swimming = URI.open("https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+football3 = URI.open("https://germinalamenity.com/wp/wp-content/uploads/2022/12/Football-pitch-maintenance-Stirling-Albion.png")
+swimming1 = URI.open("https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+swimming2 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Depart4x100.jpg/800px-Depart4x100.jpg")
 volleyball1 = URI.open("https://images.unsplash.com/photo-1567781830902-685fb3401f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
 volleyball2 = URI.open("https://images.unsplash.com/photo-1584692618238-72820dbd5c60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+volleyball3 = URI.open("https://upload.wikimedia.org/wikipedia/commons/b/bf/Algeria_and_Japan_women%27s_national_volleyball_team_at_the_2012_Summer_Olympics_%287913959028%29.jpg")
+volleyball4 = URI.open("https://t3.ftcdn.net/jpg/04/22/84/12/360_F_422841241_OR69MNhNG3Sxl6pmrKwuoBZPaZpZLt1a.jpg")
 basketball2 = URI.open("https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2090&q=80")
 bouldering = URI.open("https://images.unsplash.com/photo-1564769662533-4f00a87b4056?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2144&q=80")
 bouldering2 = URI.open("https://images.unsplash.com/photo-1536639070539-43ec572aca6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+bouldering3 = URI.open("https://assets.simpleviewinc.com/simpleview/image/upload/c_fit,w_1000,h_800/crm/cooperstownny/Table-Rock-Bouldering-climb-5111d4db5056a36_5111d673-5056-a36a-0737f09900910175.jpg")
+bouldering4 = URI.open("https://images.squarespace-cdn.com/content/v1/5bfed270697a98d5791b166a/2cf4e95e-90ca-4b63-9245-7c2294de8bc8/processed_20211107_115448.jpg")
+bouldering5 = URI.open("https://images.squarespace-cdn.com/content/v1/5be63c9ed274cb9805e09974/1671135901740-3YV42AMWE6NUZPDXG1A7/Girl+Climbing+at+The+Spot+Golden+Wide.jpg?format=2500w")
+bouldering6 = URI.open("https://www.visitmelbourne.com/-/media/atdw/melbourne/see-and-do/leisure-activities/2e47524d52c1829b0e2201e127510e3f_1600x1200.jpeg?ts=20211115300650")
+kegel1 = URI.open("https://images.squarespace-cdn.com/content/v1/63763e1b3af6b10d5297596f/d061aa8b-cc25-4816-93f8-77b6ec4beb1b/tempImage7YimLQ.jpg")
+kegel2 = URI.open("https://imageflow.rausgegangen.de/url/https%3A//cms.rausgehangen.de/storage/uploads/2019/01/22/5c473a054475fschwarzlicht-kegeln.jpg?width=800&height=600&mode=crop")
+squash1 = URI.open("https://www.uwe.ac.uk/-/media/uwe/images/life/sport/sport-squash-court-600x600.jpg?h=602&w=602&hash=7F7A705AA80626A14BAE7A353615A316")
+squash2 = URI.open("https://asbsquash.de/modules/produkty/galleries/24/423.jpg")
+tennistable1 = URI.open("https://media.istockphoto.com/id/502189498/de/foto/table-tennis-ball-und-schl%C3%A4ger.jpg?s=612x612&w=0&k=20&c=3sf5Yr6tYNMGBJ9X2Lidu6YlW-upypMbUQ8Mkj5SuAc=")
+tennistable2 = URI.open("https://www.sintensports.com.sg/wp-content/uploads/2021/12/image1.jpg")
 
-photos = [basketball, tennis, basketball2, basketball3, bowling, martialarts, football1, football2, swimming, volleyball1, volleyball2]
+#venues
+tennis_description1 = "Welcome to our tennis sport club! We offer a vibrant and inclusive environment for players of all ages and skill levels. Our state-of-the-art facilities include well-maintained tennis courts and top-quality equipment. With experienced coaches, we provide professional training programs, individual lessons, and exciting tournaments. Whether you're a beginner or a seasoned player, our club fosters a strong sense of community, where you can meet fellow enthusiasts and participate in friendly matches. Join us to enhance your skills, stay active, and enjoy the thrilling game of tennis."
+kegel_descriptionv = "Experience the ultimate bowling destination at Kegel Venue. With state-of-the-art lanes, impeccable maintenance, and a vibrant atmosphere, it's the perfect place to showcase your bowling prowess. Get ready for an exhilarating and unforgettable bowling experience at Kegel Venue."
+bouldering_description1 = "Welcome to Ascend, the premier bouldering venue for climbers of all levels. Ascend offers a diverse range of challenging routes, meticulously crafted walls, and a supportive community. Immerse yourself in the thrill of bouldering in a vibrant and dynamic environment at Ascend."
+bouldering_description2 = "Welcome to the Climbing Zone, where bouldering dreams become a reality. With its towering walls, varied routes, and top-notch safety measures, ClimbZone is a haven for bouldering enthusiasts. Whether you're a beginner or a seasoned climber, prepare to push your limits and experience the thrill of vertical adventures at ClimbZone."
+bouldering_description3 = "Discover the ultimate bouldering playground at RockRise. Our venue offers a diverse range of challenging routes, meticulously designed climbing walls, and a supportive community. Unleash your inner adventurer and experience the thrill of bouldering in a welcoming and exhilarating atmosphere at RockRise."
+bouldering_description4 = "Embark on a gravity-defying journey at BoulderZone, the ultimate bouldering destination. Our meticulously crafted walls, diverse routes, and expertly set problems cater to climbers of all abilities. Join our vibrant community, push your limits, and experience the thrill of bouldering in a dynamic and supportive environment at BoulderZone."
+martialarts_description = "Welcome to StrikeZone, the premier martial arts venue for enthusiasts of all disciplines. With our expert instructors, top-notch training facilities, and a supportive community, StrikeZone is the perfect place to hone your skills, build confidence, and embrace the art of self-defense. Unleash your potential at StrikeZone."
+bowling_description = "Welcome to StrikeLane, the premier bowling venue for endless fun and friendly competition. With state-of-the-art lanes, modern amenities, and a lively atmosphere, StrikeLane is the perfect place to strike some pins with friends and family. Lace up your bowling shoes and get ready for an unforgettable bowling experience at StrikeLane."
+volleyball_description = "Welcome to SpikeZone, the ultimate volleyball venue for players and fans alike. Our pristine courts, professional-grade equipment, and passionate community create the perfect setting for competitive matches and thrilling tournaments. Join us at SpikeZone and experience the exhilaration of volleyball in a dynamic and welcoming atmosphere."
+squash_description = "Step into SquashZone, where squash enthusiasts thrive. Our world-class courts, advanced lighting, and top-quality equipment offer the perfect environment for intense matches and skill-building. Join our passionate community and immerse yourself in the fast-paced action of squash at SquashZone."
+swimming_description = "Dive into AquaSprint, the ultimate swimming venue for aquatic enthusiasts. Our state-of-the-art Olympic-sized pools, crystal-clear waters, and expertly maintained facilities provide the ideal setting for swimmers of all levels. Join us at AquaSprint and experience the joy and exhilaration of swimming in a world-class aquatic environment."
+tennis_description = "Welcome to AceCourt, the premier tennis venue for players of all levels. Our meticulously maintained courts, professional-grade facilities, and a vibrant tennis community create the perfect setting for intense matches and skill development. Join us at AceCourt and unleash your passion for tennis in a dynamic and supportive environment."
+tabletennis_description = "Welcome to PingPongZone, the ultimate table tennis venue for players seeking fast-paced action. With top-of-the-line tables, professional-grade paddles, and a lively atmosphere, PingPongZone offers the perfect space to showcase your skills and compete with fellow enthusiasts. Join us at PingPongZone and experience the thrill of table tennis at its finest."
+football_description = "Welcome to GoalArena, the premier soccer venue for players and fans alike. With meticulously maintained fields, top-quality facilities, and an electric atmosphere, GoalArena provides the perfect stage for intense matches and memorable moments. Lace up your boots and immerse yourself in the beautiful game at GoalArena."
+martialarts2_description = "Enter the dojo of Warrior's Haven, a martial arts venue that cultivates discipline, skill, and camaraderie. With expert instructors, a dedicated training space, and a supportive community, Warrior's Haven is the perfect sanctuary to explore and master various martial arts disciplines while fostering personal growth and self-defense capabilities."
+basketball_description = "Welcome to our dynamic basketball sport club! We are dedicated to promoting the love for the game and providing a supportive environment for basketball enthusiasts of all ages. Our state-of-the-art facilities and experienced coaches offer comprehensive training programs, organized leagues, and thrilling competitions. Whether you're a beginner aiming to learn the fundamentals or an experienced player looking to elevate your skills, our club is the perfect place for you. Join our passionate community and experience the exhilaration of dribbling, shooting, and teamwork. Let's hit the court and embrace the excitement of basketball together!"
 
-description = [
-  "The sports club with many sports courts has everything you need to get fit and have fun. Dedicated courts for volleyball, basketball, martialarts, and bowling keep everyone entertained while they work on their game. With plenty of seating and vending machines nearby, this gym is the perfect place to work out or relax after a hard day's play.",
-  "Looking for a sports club with many sports courts? Look no further than the Sports Arenas Club. Our location provides access to volleyball, basketball, martialarts, and bowling courts, making it the perfect place to get your exercise fix. Plus, we’re located next to a pub so you can relax after your workout and catch up on your favorite TV show.",
-  "The XYZ Sport Club is a vibrant and inclusive community for sports enthusiasts of all ages and skill levels. With state-of-the-art facilities and a passionate coaching staff, the club offers a wide range of sporting activities to cater to diverse interests. From soccer and basketball to swimming and tennis, members can engage in their favorite sports and develop their athletic abilities. The club fosters a supportive and competitive environment, encouraging teamwork, discipline, and personal growth. With regular training sessions, friendly matches, and exciting tournaments, the XYZ Sport Club provides an exhilarating platform for members to pursue their sporting dreams while fostering camaraderie and a healthy lifestyle.",
-  "Welcome to Serenity Sports Club, where tranquility and athleticism harmonize to create a haven for sports enthusiasts seeking balance and well-being. Nestled amidst picturesque surroundings, Serenity Sports Club offers a unique blend of physical activity and serenity for individuals seeking holistic development.
-  Our club is designed with a focus on promoting a healthy mind and body. Immerse yourself in our well-manicured grounds, where you can engage in a variety of sports such as tennis, golf, swimming, and yoga. Our state-of-the-art facilities are designed to enhance your performance and provide a serene environment where you can find inner peace while honing your athletic skills.
-  At Serenity Sports Club, we understand the importance of a well-rounded approach to fitness. Our experienced coaches and instructors are dedicated to guiding you on your journey to physical and mental well-being. From personalized training programs to mindfulness classes, we offer a range of activities that cater to individuals of all ages and fitness levels.
-  Beyond the sports offerings, Serenity Sports Club is a sanctuary for relaxation and rejuvenation. Unwind at our luxurious spa and wellness center, indulge in nutritious cuisine at our health-conscious cafe, or simply find solace in the serene surroundings that encourage moments of reflection and tranquility.
-  Join Serenity Sports Club today and embark on a transformative experience where athletic pursuits and inner peace merge. Embrace a lifestyle that nurtures your body, mind, and soul, and surround yourself with like-minded individuals who share your passion for holistic well-being. Discover the perfect balance at Serenity Sports Club.",
-  "Welcome to Vitality Fitness Club, your premier destination for a healthy and active lifestyle! Situated in a prime location, Vitality Fitness Club is a haven for fitness enthusiasts of all ages and abilities.
-  Our club is dedicated to providing top-notch facilities and cutting-edge equipment to support your fitness journey. From spacious and well-equipped workout areas to specialized studios for group fitness classes, we have everything you need to achieve your fitness goals. Whether you're into strength training, cardio workouts, yoga, or spinning, our diverse range of fitness programs cater to every interest and fitness level.
-  At Vitality Fitness Club, we prioritize personalized attention and professional guidance. Our team of certified trainers is passionate about helping you succeed. They will work closely with you to develop customized workout plans, provide expert coaching, and offer nutritional advice to optimize your results. With their support and motivation, you'll stay inspired and on track to reach new heights of fitness.
-  Beyond the physical benefits, Vitality Fitness Club is a community that fosters a positive and supportive environment. Engage with fellow members, participate in group challenges, and attend workshops and seminars on wellness and self-improvement. We believe that a strong community is the foundation for long-term success and enjoyment in your fitness journey.
-  Join Vitality Fitness Club today and embark on a transformative fitness experience. Discover the joy of living a healthy and balanced life, and unlock your full potential in a vibrant and inclusive community. Your path to vitality starts here!",
-  "Welcome to Swift Strikers Sports Club, where passion and teamwork fuel success on and off the field! Nestled in a vibrant neighborhood, Swift Strikers Sports Club is the ultimate destination for athletes looking to elevate their game and build lifelong connections.
-  Our club boasts state-of-the-art facilities tailored to a variety of sports, ensuring that every member finds their perfect match. Whether you're drawn to the fast-paced action of soccer, the strategic maneuvers of basketball, or the finesse of volleyball, Swift Strikers Sports Club offers pristine fields and courts that inspire peak performance.
-  At Swift Strikers, we believe in the power of teamwork and personal growth. Our highly skilled coaches are dedicated to nurturing individual talent while instilling values of discipline, sportsmanship, and resilience. Through comprehensive training programs and personalized attention, we empower athletes of all ages and skill levels to excel both on and off the field.
-  Beyond training and competition, Swift Strikers Sports Club is a tight-knit community that celebrates the spirit of sportsmanship and camaraderie. We organize regular social events, charity drives, and team-building activities, fostering lasting friendships and creating memories that go beyond the game.
-  Join Swift Strikers Sports Club today and experience the thrill of belonging to a passionate and driven community. Whether you're a young athlete with dreams of reaching the professional stage or an adult looking to stay active and connect with like-minded individuals, our club is your springboard to success. Get ready to unleash your full potential and become a part of the Swift Strikers family!",
-  "Welcome to Stellar Sports Club, where excellence and camaraderie take center stage! Situated in a picturesque location, Stellar Sports Club is a haven for sports enthusiasts seeking a dynamic and fulfilling experience.
-  Our club is known for its world-class facilities that cater to a diverse range of sporting disciplines. Whether you're a fan of soccer, cricket, rugby, tennis, or even equestrian sports, Stellar Sports Club offers top-tier amenities designed to enhance your performance and enjoyment. From meticulously maintained fields and courts to cutting-edge training equipment, we spare no effort in providing the best sporting environment.
-  At Stellar Sports Club, we believe in nurturing talent and fostering a strong sense of community. Our experienced and passionate coaches are dedicated to helping athletes of all levels reach their full potential. Whether you're an aspiring professional or simply looking to have fun and stay fit, our programs are tailored to meet your individual goals and abilities.
-  Beyond the sports itself, Stellar Sports Club is a hub for social interaction and personal growth. Our club hosts regular events, tournaments, and social gatherings, offering opportunities to connect with fellow sports enthusiasts, build lasting friendships, and celebrate achievements together.
-  Join Stellar Sports Club today and embark on an exhilarating journey of athletic excellence. Whether you're honing your skills, competing at a high level, or simply enjoying the thrill of sports, our club promises an unforgettable experience. Discover your true sporting potential and be a part of our stellar community!",
-  "Welcome to Apex Athletics, the premier sport club dedicated to nurturing talent and fostering a passion for sports! Located in the heart of the city, Apex Athletics is a vibrant and inclusive community where athletes of all ages and skill levels come together to train, compete, and grow.
-  Our state-of-the-art facility boasts top-notch amenities, including well-equipped gyms, cutting-edge training equipment, and meticulously maintained playing fields. Whether you're a beginner looking to develop fundamental skills or a seasoned athlete aiming for the highest level of performance, we have programs tailored to suit your needs.
-  At Apex Athletics, we offer a wide range of sports disciplines to cater to diverse interests. From soccer, basketball, and tennis to swimming, gymnastics, and martial arts, our experienced coaches provide expert guidance and create a supportive environment to help you achieve your goals. We emphasize holistic development, focusing not only on physical prowess but also on character-building, teamwork, and sportsmanship.
-  For our younger athletes, we have a comprehensive youth development program that introduces them to various sports, fostering a love for an active lifestyle and instilling values of discipline and resilience. Our adult leagues and recreational programs offer opportunities for friendly competition and social engagement, ensuring a fulfilling experience for athletes of all ages.
-  Join the Apex Athletics family today and unlock your full athletic potential. Experience the thrill of pushing boundaries, making lifelong friends, and creating unforgettable memories. Get ready to reach new heights with us at Apex Athletics!"
-]
+#clubs
+kampf_description = "kampf : With us you will find leisure, sport, fun, self-defence and competition for everyone from the age of 4*. We train Olympic kickboxing, self-defense and women's kickboxing. As a competition basis (K1), boxing and Thai boxing techniques. You can find us during our training times in Cologne-Ehrenfeld, right next to the Piusstrasse underground station. You are welcome to come by for a trial session during the specified opening hours. Children, teenagers and adults from the age of 4 learn with us."
+kautz_description = "The sports center Kautz in Cologne has been the multifunctional sports facility for leisure sports in the south-west of Cologne since 1980. Since then, our strengths have been in our family relationship with our customers, as well as our wide range of racket, ball and endurance sports. All information about racket sport. Since 2016 we have also practiced martial arts at the Boxing Company Cologne and since the beginning of last year we have also had an offer for the smallest athletes in the world: the little buggers. (Baby and children courses)."
+boulderplanet_description = "On an area of 1,800 square meters you can climb in the Ehrenfeld Boulderplanet without a rope in seven different levels of difficulty from 2a+ to 8a+. The walls are up to 4.50 meters high, and anyone who falls lands on a 30 centimeter thick soft floor mat with a special structure. A separate training area with campus board and breadboard is available. Warming up and stretching is also possible in a separate area. Wall bars and cardio machines are available, as are changing rooms with lockers and foot wash basins."
+kletterfabrik_description = "Welcome to our thrilling bouldering sport club! We are a haven for climbing enthusiasts seeking an adrenaline-pumping experience. With our expertly crafted bouldering walls and diverse routes, we cater to climbers of all levels, from beginners to seasoned pros. Our club offers a supportive and inclusive community where climbers can challenge themselves, improve their technique, and push their limits. Join us and embrace the physical and mental aspects of this exhilarating sport while forging new friendships. Let's scale new heights together and embark on an unforgettable bouldering adventure!"
+k11_description = "Our small, fine bouldering hall is located in the middle of the southern part of Cologne. Here you can expect many bouldering walls from easy to the big roof in a relaxed and pleasant atmosphere. Plus the opportunity to enjoy a delicious coffee or a beer in the seating area or outside under the trees. The hall is a few minutes' walk from Chlodwigplatz, parking spaces for bicycles and cars are available."
+stuntwerk_description = "The Stuntwerk brand is growing and developing rapidly. Thanks to the unique concept, professional implementation and clear market positioning, we achieve double-digit growth rates. With several strong investors and partners at our side, we offer sports-loving private individuals and companies (regardless of industry) the opportunity to invest in new stunt work projects or to participate in existing ones."
+kegel_description = "Die Teddybären : Welcome to our lively Kegel club! We are dedicated to the sport of kegeling and providing a fun-filled environment for enthusiasts of all ages. Our modern facilities and friendly atmosphere offer a perfect space to hone your kegeling skills. Whether you're a beginner looking to learn the techniques or a seasoned player seeking friendly competitions, our club is the ideal place for you. Join our supportive community and experience the excitement of knocking down pins while fostering friendships and a healthy lifestyle. Let's strike, spare, and celebrate together!"
+citybowling_description = "Bowling in the best and most relaxed atmosphere - four completely in 2022 newly installed lanes and a revised room concept await you. The new leather seating ensures a comfortable stay and the new tables offer enough space to enjoy freshly prepared snacks such as pizza or nachos as well as cocktails - prepared with only the highest quality spirits. Our offers and specials offer you special discounts and promotions for larger groups or school classes. For corporate events or Christmas parties, individual lanes or the entire City Bowling Center can be booked."
+wdr_description = "We are a dedicated, diverse group of people between the ages of 20 and 60. Training takes place every Wednesday from 7:00 p.m. to 10:00 p.m. in the primary school sports hall (near Barbarossaplatz). Afterwards we often get together for a beer in a pub around the corner and let the evening end relaxed. With us, having fun is paramount. Nevertheless, we are ambitious and would like to develop further as a team. That's why we always go full throttle during training. We are looking forward to further training partners on the field - so feel free to contact us!"
+scjanus_description = "SC Janus e.V. is a non-profit sports club based in Cologne. Founded in 1980, it is the first and largest queer sports club in Europe and also has one of the largest memberships worldwide. As a sports club, it enables diverse and individual sporting experiences in a non-discriminatory environment, regardless of origin and social status, physical conditions, age, gender and sexual identity. Become a member and benefit from over 90 sports offers from over 45 sports seven days a week. Meet lots of new people who share your interests and passion for the sport. Be part of the community and part of the movement! SC Janus - more than sport."
+esvolympia_description = "Welcome to our dynamic football sport club! We are passionate about the beautiful game and offer an exciting environment for players of all ages and abilities. With top-notch facilities and experienced coaches, our club provides comprehensive training programs, competitive leagues, and thrilling matches. Whether you're a beginner eager to learn or a seasoned player seeking to enhance your skills, our club is the perfect place to unleash your potential. Join our tight-knit community and experience the joy of teamwork, camaraderie, and the thrill of scoring goals. Let's kick off a memorable football journey together!"
 
-clubs_names = ["Kampfsport Center Köln", "Kautz Sportcenter", "Boulderplanet", "Kletterfabrik Köln", "K11 | Bouldering in South City", "Stuntwerk Köln", "Kegelclub - Die Teddybären", "City-Bowling Köln", "WDR Volleyball", "SC Janus e. V.", "ESV Olympia Köln - Fußball", ]
+photos = [martialarts, basketball, bouldering, bouldering2, bouldering3, bouldering4, kegel1, bowling1, volleyball1, volleyball2, football1, football2]
+clubs_descriptions = [kampf_description, kautz_description, boulderplanet_description, kletterfabrik_description, k11_description, stuntwerk_description, kegel_description, citybowling_description, wdr_description, scjanus_description, esvolympia_description]
+
+clubs_names = ["Kampfsport Center Köln", "Kautz Sportcenter", "Boulderplanet", "Kletterfabrik Köln", "K11 | Bouldering in South City", "Stuntwerk Köln", "Kegelclub - Die Teddybären", "City-Bowling Köln", "WDR Volleyball", "SC Janus e. V.", "ESV Olympia Köln - Fußball"]
 clubs_zip_codes = ["50823", "50939", "50825", "50825", "50678", "51063", "50676", "50674", "50676", "50674", "50739"]
 clubs_streets = ["Venloer Str. 182", "Rhöndorfer Str. 10-13", "Oskar-Jäger-Straße 143H", "Oskar-Jäger-Straße 173", "Kyllstraße 11", "Schanzenstraße 6-20", "Agrippastraße 6", "Moselstraße 44", "Am Pantaleonsberg 3", "Hohenstaufenring 42", "Lämmerstr."]
 clubs_phone_numbers = "123456789"
@@ -67,53 +85,86 @@ clubs_names.each_with_index do |clubname, index|
   club.phone_number = clubs_phone_numbers
   club.email = clubs_emails
   club.city = "Cologne"
-  club.description = description
   club.user = user
   club.status = true
-  club.photos.attach(io: photos[index], filename: "anything.jpeg", content_type: "image/jpeg")
+  club.photos.attach(io: File.open(photos[index]), filename: "anything.jpeg", content_type: "image/jpeg")
   club.address = "#{club.street}, #{club.zip_code}, #{club.city}"
-  club.description = description.sample
+  club.description = clubs_descriptions[index]
   club.save
 end
 clubs = Club.all
-venue1= Venue.new(name: "MartialArts", category: "MartialArts", description: description.sample, price: 17.99, club: clubs[0])
-
+venue1 = Venue.new(name: "MartialArts", category: "MartialArts", description: martialarts_description, price: 17.99, club: clubs[0])
 venue1.save
-venue2 = Venue.create(name: "Boulderplanet", category: "Bouldering", description: description.sample, price: 15.99, club: clubs[2])
+venue1.photos.attach(io: File.open(martialarts2), filename: "anything.jpeg", content_type: "image/jpeg")
+venue1.save
 
+venue2 = Venue.new(name: "Boulderplanet", category: "Bouldering", description: bouldering_description1, price: 15.99, club: clubs[2])
+venue2.photos.attach(io: File.open(bouldering2), filename: "anything.jpeg", content_type: "image/jpeg")
 venue2.save
-venue3 = Venue.create(name: "Kletterfabrik Köln", category: "Bouldering", description: description.sample, price: 70.99, club: clubs[3])
+venue2.photos.attach(io: File.open(bouldering), filename: "anything.jpeg", content_type: "image/jpeg")
+venue2.save
 
+venue3 = Venue.new(name: "Kletterfabrik Köln", category: "Bouldering", description: bouldering_description2, price: 70.99, club: clubs[3])
+venue3.photos.attach(io: File.open(bouldering3), filename: "anything.jpeg", content_type: "image/jpeg")
 venue3.save
-venue4 = Venue.create(name: "K11 | Bouldering in South City", category: "Bouldering", description: description.sample, price: 33.99, club: clubs[4])
+venue3.photos.attach(io: File.open(bouldering4), filename: "anything.jpeg", content_type: "image/jpeg")
+venue3.save
 
+venue4 = Venue.new(name: "K11 | Bouldering in South City", category: "Bouldering", description: bouldering_description3, price: 33.99, club: clubs[4])
+venue4.photos.attach(io: File.open(bouldering5), filename: "anything.jpeg", content_type: "image/jpeg")
 venue4.save
-venue5 = Venue.create(name: "Stuntwerk Köln", category: "Bouldering", description: description.sample, price: 11.10, club: clubs[5])
+venue4.photos.attach(io: File.open(bouldering6), filename: "anything.jpeg", content_type: "image/jpeg")
+venue4.save
 
+venue5 = Venue.new(name: "Stuntwerk Köln", category: "Bouldering", description: bouldering_description4, price: 11.10, club: clubs[5])
+venue5.photos.attach(io: File.open(bouldering2), filename: "anything.jpeg", content_type: "image/jpeg")
 venue5.save
-venue6 = Venue.create(name: "Kegelclub - Die Teddybären", category: "Kegel", description: description.sample, price: 40.50, club: clubs[6])
+venue5.photos.attach(io: File.open(bouldering3), filename: "anything.jpeg", content_type: "image/jpeg")
+venue5.save
 
+venue6 = Venue.new(name: "Kegelclub - Die Teddybären", category: "Kegel", description: kegel_descriptionv, price: 40.50, club: clubs[6])
+venue6.photos.attach(io: File.open(kegel1), filename: "anything.jpeg", content_type: "image/jpeg")
 venue6.save
-venue7 = Venue.create(name: "City-Bowling Köln", category: "Bowling", description: description.sample, price: 22.99, club: clubs[7])
+venue6.photos.attach(io: File.open(kegel2), filename: "anything.jpeg", content_type: "image/jpeg")
+venue6.save
 
+venue7 = Venue.new(name: "City-Bowling Köln", category: "Bowling", description: bowling_description, price: 22.99, club: clubs[7])
+venue7.photos.attach(io: File.open(bowling1), filename: "anything.jpeg", content_type: "image/jpeg")
 venue7.save
-venue8 = Venue.create(name: "WDR Volleyball", category: "Volleyball", description: description.sample, price: 21.99, club: clubs[8])
+venue7.photos.attach(io: File.open(bowling2), filename: "anything.jpeg", content_type: "image/jpeg")
+venue7.save
 
+venue8 = Venue.new(name: "WDR Volleyball", category: "Volleyball", description: volleyball_description, price: 21.99, club: clubs[8])
+venue8.photos.attach(io: File.open(volleyball1), filename: "anything.jpeg", content_type: "image/jpeg")
+venue8.save
+venue8.photos.attach(io: File.open(volleyball2), filename: "anything.jpeg", content_type: "image/jpeg")
 venue8.save
 
-scjenusvenues = %w[Swimming Football Volleyball Basketball]
-scjenusvenues.each do |venue|
-  venue_name = Venue.new(name: venue, category: venue, description: description.sample)
-
+dsc = [swimming_description, football_description, volleyball_description, basketball_description]
+photosave = [swimming1, swimming2, football1, football2, volleyball3, volleyball4, basketball3, basketball2]
+scjenusvenues = ["Swimming", "Football", "Volleyball", "Basketball"]
+scjenusvenues.each_with_index do |venue, index|
+  venue_name = Venue.new(name: venue, category: venue, description: dsc[index], price: 26.99)
+  venue_name.photos.attach(io: File.open(photosave[index]), filename: "anything.jpeg", content_type: "image/jpeg")
   venue_name.club = clubs[9]
-  venue_name.save
+  venue_name.save!
+  venue_name.photos.attach(io: File.open(photosave[index + 1]), filename: "anything.jpeg", content_type: "image/jpeg")
+  venue_name.save!
 end
-venue9 = Venue.create(name: "ESV Olympia Köln - Fußball", category: "Football", description: description.sample, club: clubs[10])
+venue9 = Venue.new(name: "ESV Olympia Köln - Fußball", category: "Football", description: football_description, club: clubs[10])
+venue9.photos.attach(io: File.open(football2), filename: "anything.jpeg", content_type: "image/jpeg")
+venue9.save
+venue9.photos.attach(io: File.open(football3), filename: "anything.jpeg", content_type: "image/jpeg")
+venue9.save
 
-kautz_venues = %w[Squash Swimming Tennis TableTennis Soccer MartialArts]
-kautz_venues.each do |venue|
-  venue_name = Venue.new(name: venue, category: venue, description: description.sample)
-
+kautz_desc = [squash_description, swimming_description, tennis_description, tabletennis_description, football_description, martialarts2_description]
+kautz_photos = [squash1, squash2, swimming1, swimming2, tennis1, tennis2, tennistable1, tennistable2, martialarts, martialarts2]
+kautz_venues = ["Squash", "Swimming", "Tennis", "TableTennis", "Soccer", "MartialArts"]
+kautz_venues.each_with_index do |venue, index|
+  venue_name = Venue.new(name: venue, category: venue, description: kautz_desc[index], price: 22.99)
+  venue_name.photos.attach(io: File.open(kautz_photos[index]), filename: "anything.jpeg", content_type: "image/jpeg")
   venue_name.club = clubs[1]
   venue_name.save
+  venue_name.photos.attach(io: File.open(kautz_photos[index + 1]), filename: "anything.jpeg", content_type: "image/jpeg")
+  venue_name.save!
 end

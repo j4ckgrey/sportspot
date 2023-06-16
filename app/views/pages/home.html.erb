@@ -199,7 +199,7 @@
             <div class="col-md-6 mb-4">
               <div class="card club-card shadow">
                 <% if !club.photos.empty? %>
-                  <%= cl_image_tag club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start", style:"height: 200px; width: 400; object-fit: cover;" %>
+                  <%= cl_image_tag club.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start", style:"height: 200px; width: 400px; object-fit: cover;" %>
                 <% else %>
                   <img src= "<%= image_path('turnhalle3.jpg') %>" class="card-img-top" alt="image">
                 <% end %>
