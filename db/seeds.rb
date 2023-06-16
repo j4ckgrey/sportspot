@@ -13,7 +13,7 @@ tennis2 = URI.open("https://tigerturf.com/in/wp-content/uploads/2019/11/How-to-b
 basketball3 = URI.open("https://images.unsplash.com/photo-1583514735599-2ec2d33beaf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80")
 bowling1 = URI.open("https://images.unsplash.com/photo-1545056453-f0359c3df6db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
 bowling2 = URI.open("https://files.guidedanmark.org/files/451/273351_Skjern_Bowling_Center.jpg")
-martialarts = URI.open("https://plus.unsplash.com/premium_photo-1667941272664-9146446e1b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+martialarts1 = URI.open("https://plus.unsplash.com/premium_photo-1667941272664-9146446e1b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
 martialarts2 = URI.open("https://i.pinimg.com/736x/41/ee/98/41ee98ff413e459e8b4eadb2ced7aa85--taekwondo-karate.jpg")
 football1 = URI.open("https://images.unsplash.com/photo-1536639070539-43ec572aca6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
 football2 = URI.open("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
@@ -69,7 +69,7 @@ wdr_description = "We are a dedicated, diverse group of people between the ages 
 scjanus_description = "SC Janus e.V. is a non-profit sports club based in Cologne. Founded in 1980, it is the first and largest queer sports club in Europe and also has one of the largest memberships worldwide. As a sports club, it enables diverse and individual sporting experiences in a non-discriminatory environment, regardless of origin and social status, physical conditions, age, gender and sexual identity. Become a member and benefit from over 90 sports offers from over 45 sports seven days a week. Meet lots of new people who share your interests and passion for the sport. Be part of the community and part of the movement! SC Janus - more than sport."
 esvolympia_description = "Welcome to our dynamic football sport club! We are passionate about the beautiful game and offer an exciting environment for players of all ages and abilities. With top-notch facilities and experienced coaches, our club provides comprehensive training programs, competitive leagues, and thrilling matches. Whether you're a beginner eager to learn or a seasoned player seeking to enhance your skills, our club is the perfect place to unleash your potential. Join our tight-knit community and experience the joy of teamwork, camaraderie, and the thrill of scoring goals. Let's kick off a memorable football journey together!"
 
-photos = [martialarts, basketball, bouldering, bouldering2, bouldering3, bouldering4, kegel1, bowling1, volleyball1, volleyball2, football1, football2]
+photos = [martialarts1, basketball, bouldering, bouldering2, bouldering3, bouldering4, kegel1, bowling1, volleyball1, volleyball2, football1, football2]
 clubs_descriptions = [kampf_description, kautz_description, boulderplanet_description, kletterfabrik_description, k11_description, stuntwerk_description, kegel_description, citybowling_description, wdr_description, scjanus_description, esvolympia_description]
 
 clubs_names = ["Kampfsport Center Köln", "Kautz Sportcenter", "Boulderplanet", "Kletterfabrik Köln", "K11 | Bouldering in South City", "Stuntwerk Köln", "Kegelclub - Die Teddybären", "City-Bowling Köln", "WDR Volleyball", "SC Janus e. V.", "ESV Olympia Köln - Fußball"]
@@ -94,6 +94,7 @@ clubs_names.each_with_index do |clubname, index|
 end
 clubs = Club.all
 venue1 = Venue.new(name: "MartialArts", category: "MartialArts", description: martialarts_description, price: 17.99, club: clubs[0])
+venue1.photos.attach(io: File.open(martialarts1), filename: "anything.jpeg", content_type: "image/jpeg")
 venue1.save
 venue1.photos.attach(io: File.open(martialarts2), filename: "anything.jpeg", content_type: "image/jpeg")
 venue1.save
@@ -145,10 +146,10 @@ photosave = [swimming1, swimming2, football1, football2, volleyball3, volleyball
 scjenusvenues = ["Swimming", "Football", "Volleyball", "Basketball"]
 scjenusvenues.each_with_index do |venue, index|
   venue_name = Venue.new(name: venue, category: venue, description: dsc[index], price: 26.99)
-  venue_name.photos.attach(io: File.open(photosave[index]), filename: "anything.jpeg", content_type: "image/jpeg")
+  venue_name.photos.attach(io: File.open(photosave[2 * index]), filename: "anything.jpeg", content_type: "image/jpeg")
   venue_name.club = clubs[9]
   venue_name.save!
-  venue_name.photos.attach(io: File.open(photosave[index + 1]), filename: "anything.jpeg", content_type: "image/jpeg")
+  venue_name.photos.attach(io: File.open(photosave[2 * index + 1]), filename: "anything.jpeg", content_type: "image/jpeg")
   venue_name.save!
 end
 venue9 = Venue.new(name: "ESV Olympia Köln - Fußball", category: "Football", description: football_description, club: clubs[10])
@@ -158,13 +159,13 @@ venue9.photos.attach(io: File.open(football3), filename: "anything.jpeg", conten
 venue9.save
 
 kautz_desc = [squash_description, swimming_description, tennis_description, tabletennis_description, football_description, martialarts2_description]
-kautz_photos = [squash1, squash2, swimming1, swimming2, tennis1, tennis2, tennistable1, tennistable2, martialarts, martialarts2]
+kautz_photos = [squash1, squash2, swimming1, swimming2, tennis1, tennis2, tennistable1, tennistable2, football1, football2, martialarts1, martialarts2]
 kautz_venues = ["Squash", "Swimming", "Tennis", "TableTennis", "Soccer", "MartialArts"]
 kautz_venues.each_with_index do |venue, index|
   venue_name = Venue.new(name: venue, category: venue, description: kautz_desc[index], price: 22.99)
-  venue_name.photos.attach(io: File.open(kautz_photos[index]), filename: "anything.jpeg", content_type: "image/jpeg")
+  venue_name.photos.attach(io: File.open(kautz_photos[2 * index]), filename: "anything.jpeg", content_type: "image/jpeg")
   venue_name.club = clubs[1]
   venue_name.save
-  venue_name.photos.attach(io: File.open(kautz_photos[index + 1]), filename: "anything.jpeg", content_type: "image/jpeg")
+  venue_name.photos.attach(io: File.open(kautz_photos[2 * index + 1]), filename: "anything.jpeg", content_type: "image/jpeg")
   venue_name.save!
 end

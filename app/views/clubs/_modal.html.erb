@@ -12,7 +12,7 @@
             <div class="row">
               <div class="col-4">
                 <% if !venue.photos.empty? %>
-                  <%= cl_image_tag venue.club.photos.first.key, crop: :fill, class:"d-flex justify-content-center img-fluid rounded-start d-block img-thumbnail img-fluid rounded-start"%>
+                  <%= cl_image_tag venue.photos.first.key, crop: :fill, class:"d-block img-thumbnail img-fluid rounded-start", style:"height:120px; width:230; object-fit: cover;"%>
                 <% else %>
                   <%= image_tag "venue_default.jpeg", class:"d-flex justify-content-center img-fluid rounded-start d-block img-thumbnail img-fluid rounded-start"%>
                 <% end %>
